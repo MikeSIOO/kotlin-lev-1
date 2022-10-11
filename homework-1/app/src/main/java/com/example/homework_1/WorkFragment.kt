@@ -27,4 +27,8 @@ class WorkFragment : Fragment() {
         textView.text = counter.toString()
         // TODO сделать добавление плашек
     }
+
+    fun changeOrientation(isPortant: Boolean) {
+        textView.text = if (isPortant) "Port" else "Land"
+    }
 }
