@@ -1,5 +1,6 @@
 package com.example.homework_1
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -28,7 +29,7 @@ class WorkFragment : Fragment() {
         // TODO сделать добавление плашек
     }
 
-    fun changeOrientation(isPortant: Boolean) {
-        textView.text = if (isPortant) "Port" else "Land"
+    fun changeOrientation(orient: Int) {
+        textView.text = if (orient == Configuration.ORIENTATION_PORTRAIT) "Port" else "Land"
     }
 }

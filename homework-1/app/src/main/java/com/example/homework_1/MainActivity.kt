@@ -1,13 +1,11 @@
 package com.example.homework_1
 
-import android.app.Activity
-import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 
 class MainActivity : AppCompatActivity(), OnButtonListener {
-    //    private val COUNT = "NumOfElements"
+    private val COUNT = "NumOfElements"
     private var counter: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,11 +14,7 @@ class MainActivity : AppCompatActivity(), OnButtonListener {
 
         val fragmentManager = supportFragmentManager
         val workFragment: WorkFragment? = fragmentManager.findFragmentById(R.id.fragment_work) as WorkFragment?
-        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            workFragment?.changeOrientation(false)
-        } else {
-            workFragment?.changeOrientation(true)
-        }
+        workFragment?.changeOrientation(resources.configuration.orientation)
     }
 
     override fun onButton() {
@@ -30,15 +24,13 @@ class MainActivity : AppCompatActivity(), OnButtonListener {
         workFragment?.createDie(counter)
     }
 
-//    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
-//        super.onSaveInstanceState(outState, outPersistentState)
-//
-//        outState.putInt(COUNT, counter)
-//    }
-//
-//    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-//        super.onRestoreInstanceState(savedInstanceState)
-//
-//        counter = savedInstanceState.getInt(COUNT)
-//    }
+    override fun onSaveInstanceState(outState: Bundle) { // Here You have to save count value
+        super.onSaveInstanceState(outState)
+        outState.putInt(COUNT, counter)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) { // Here You have to restore count value
+        super.onRestoreInstanceState(savedInstanceState)
+        counter = savedInstanceState.getInt(COUNT)
+    }
 }
