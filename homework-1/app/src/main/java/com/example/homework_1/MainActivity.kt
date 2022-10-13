@@ -1,7 +1,6 @@
 package com.example.homework_1
 
 import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 
 class MainActivity : AppCompatActivity(R.layout.activity_main), OnButtonListener {
     override fun onButton() {
