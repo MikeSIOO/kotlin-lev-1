@@ -14,14 +14,18 @@ import androidx.recyclerview.widget.RecyclerView
 
 class WorkFragment : Fragment() {
     private val NUM_OF_ELEMENTS = "NumOfElements"
-    private var counter: Int = 7
+    private var counter: Int = 1
+
     private lateinit var recyclerView: RecyclerView
-    lateinit var customRecyclerAdapter: CustomRecyclerAdapter
+    private lateinit var customRecyclerAdapter: CustomRecyclerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        if (savedInstanceState != null) {
+            counter = savedInstanceState.getInt(NUM_OF_ELEMENTS)
+        }
         return inflater.inflate(R.layout.fragment_work, container, false)
     }
 
@@ -42,14 +46,7 @@ class WorkFragment : Fragment() {
         outState.putInt(NUM_OF_ELEMENTS, counter)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        if (savedInstanceState != null) {
-            counter = savedInstanceState.getInt(NUM_OF_ELEMENTS)
-        }
-    }
-
-    class CustomRecyclerAdapter(private val counter: Int) : RecyclerView.Adapter<CustomRecyclerAdapter.MyViewHolder>() {
+    class CustomRecyclerAdapter(private val count: Int) : RecyclerView.Adapter<CustomRecyclerAdapter.MyViewHolder>() {
         class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
             val textView: TextView = itemView.findViewById(R.id.textView)
             val die: ConstraintLayout = itemView.findViewById(R.id.die)
@@ -64,13 +61,12 @@ class WorkFragment : Fragment() {
             holder.textView.text = (position+1).toString()
             holder.die.setBackgroundColor(
                 // TODO сделать загрузку цветов из ресурсов
-                if (position % 2 != 0) Color.parseColor("#ff0000")
-                else Color.parseColor("#0000ff"))
+                if (position % 2 != 0) Color.RED else Color.BLUE)
 //                .setBackgroundColor(ContextCompat.getColor(this, R.color.white))
         }
 
         override fun getItemCount(): Int {
-            return counter
+            return count
         }
     }
 
@@ -78,6 +74,5 @@ class WorkFragment : Fragment() {
         counter++
         // TODO сделать добавление плашек
 //        customRecyclerAdapter.notifyDataSetChanged()
-//        println(counter)
     }
 }
