@@ -22,13 +22,6 @@ class WorkFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            // TODO вертикальная ориентация
-//            recyclerView.layoutManager = GridLayoutManager(requireView().context, 3)
-        } else {
-            // TODO горизонтальная ориентация
-//            recyclerView.layoutManager = GridLayoutManager(requireView().context, 4)
-        }
         return inflater.inflate(R.layout.fragment_work, container, false)
     }
 
@@ -37,7 +30,11 @@ class WorkFragment : Fragment() {
         recyclerView = view.findViewById(R.id.recyclerView)
         customRecyclerAdapter = CustomRecyclerAdapter(counter)
         recyclerView.adapter = customRecyclerAdapter
-        recyclerView.layoutManager = GridLayoutManager(view.context, 3)
+        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            recyclerView.layoutManager = GridLayoutManager(view.context, 3)
+        } else {
+            recyclerView.layoutManager = GridLayoutManager(view.context, 4)
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

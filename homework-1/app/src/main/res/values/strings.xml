@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">homework-1</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="vertical">Vertical fragment</string>
-    <string name="horizontal">Horizontal fragment</string>
+    <string name="app_name">Плашки</string>
+    <string name="button_text">Добавить</string>
 </resources>
