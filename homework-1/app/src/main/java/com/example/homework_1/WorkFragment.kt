@@ -10,7 +10,6 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class WorkFragment : Fragment() {
@@ -71,9 +70,6 @@ class WorkFragment : Fragment() {
                 if (position % 2 != 0) Color.parseColor("#ff0000")
                 else Color.parseColor("#0000ff"))
 //                .setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-            // TODO сделать плашки квадратными
-//            holder.die.layoutParams.height = holder.die.width
-//            holder.die.maxHeight = holder.die.width
         }
 
         override fun getItemCount(): Int {
