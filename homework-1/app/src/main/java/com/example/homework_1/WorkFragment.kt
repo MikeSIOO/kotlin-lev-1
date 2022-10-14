@@ -11,9 +11,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class WorkFragment : Fragment() {
-    private val NUM_OF_ELEMENTS = "NumOfElements"
-    private var counter: Int = 1
-    val dies: MutableList<Die> = mutableListOf<Die>()
+    // TODO сделать добавление в память
+//    private val NUM_OF_ELEMENTS = "NumOfElements"
+//    private var counter: Int = 0
+    private var dies: MutableList<Die> = mutableListOf()
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var myAdapter: MyAdapter
@@ -23,7 +24,8 @@ class WorkFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         if (savedInstanceState != null) {
-            counter = savedInstanceState.getInt(NUM_OF_ELEMENTS)
+//            dies = savedInstanceState.getParcelableArrayList(NUM_OF_ELEMENTS)!!
+//            counter = savedInstanceState.getInt(NUM_OF_ELEMENTS)
         }
         val myView: View = inflater.inflate(R.layout.fragment_work, container, false)
         recyclerView = myView.findViewById(R.id.recyclerView)
@@ -39,12 +41,13 @@ class WorkFragment : Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putInt(NUM_OF_ELEMENTS, counter)
+//        outState.putParcelableArrayList(NUM_OF_ELEMENTS, dies)
+//        outState.putInt(NUM_OF_ELEMENTS, counter)
     }
 
     fun createDie() {
-        counter++
-        dies.add(Die(counter.toString(), if (counter % 2 != 0) Color.RED else Color.BLUE))
+        // TODO брать цвета из ресурсов
+        dies.add(Die(if (dies.size % 2 != 0) Color.RED else Color.BLUE))
         myAdapter.notifyDataSetChanged()
     }
 }

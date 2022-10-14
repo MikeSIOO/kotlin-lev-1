@@ -1,6 +1,5 @@
 package com.example.homework_1
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,10 +17,7 @@ class MyAdapter(
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         holder.textView.text = (position+1).toString()
-        holder.background.setBackgroundColor(
-            // TODO сделать загрузку цветов из ресурсов
-            if (position % 2 != 0) Color.RED else Color.BLUE)
-//                .setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+        holder.background.setBackgroundColor(dies[position].color)
     }
 
     override fun getItemCount(): Int {
@@ -31,7 +27,5 @@ class MyAdapter(
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textView: TextView = itemView.findViewById(R.id.textView)
         val background: ConstraintLayout = itemView.findViewById(R.id.background)
-
-        init {}
     }
 }
