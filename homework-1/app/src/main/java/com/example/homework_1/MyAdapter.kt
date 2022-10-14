@@ -9,7 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapter(
-    private val counter: Int,
+    private val dies: List<Die>,
 ) : RecyclerView.Adapter<MyAdapter.MyHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.die, null)
@@ -21,11 +21,11 @@ class MyAdapter(
         holder.background.setBackgroundColor(
             // TODO сделать загрузку цветов из ресурсов
             if (position % 2 != 0) Color.RED else Color.BLUE)
-//        holder.bind(dies[position])
+//                .setBackgroundColor(ContextCompat.getColor(this, R.color.white))
     }
 
     override fun getItemCount(): Int {
-        return counter
+        return dies.size
     }
 
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -33,13 +33,5 @@ class MyAdapter(
         val background: ConstraintLayout = itemView.findViewById(R.id.background)
 
         init {}
-
-        fun bind(die: Die) {
-            textView.text = die.text
-            background.setBackgroundColor(
-                // TODO сделать загрузку цветов из ресурсов
-                if (position % 2 != 0) Color.RED else Color.BLUE)
-//                .setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-        }
     }
 }
