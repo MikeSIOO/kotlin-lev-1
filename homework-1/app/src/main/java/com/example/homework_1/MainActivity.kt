@@ -2,6 +2,7 @@ package com.example.homework_1
 
 import androidx.appcompat.app.AppCompatActivity
 
+//class MainActivity : AppCompatActivity(R.layout.activity_main) {
 class MainActivity : AppCompatActivity(R.layout.activity_main), OnButtonListener {
     override fun onButton() {
         val fragmentManager = supportFragmentManager

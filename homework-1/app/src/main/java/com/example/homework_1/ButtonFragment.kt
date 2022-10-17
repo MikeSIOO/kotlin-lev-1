@@ -11,7 +11,10 @@ interface OnButtonListener {
     fun onButton()
 }
 
+//class ButtonFragment : Fragment() {
 class ButtonFragment : Fragment(), View.OnClickListener {
+//    private lateinit var button: Button
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,6 +27,8 @@ class ButtonFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         val button: Button = view.findViewById(R.id.button)
         button.setOnClickListener(this)
+//        button = view.findViewById(R.id.button)
+//        button.setOnClickListener()
     }
 
     override fun onClick(v: View?) {
@@ -31,3 +36,7 @@ class ButtonFragment : Fragment(), View.OnClickListener {
         listener?.onButton()
     }
 }
+
+//private fun Button.setOnClickListener() {
+//    TODO("Not yet implemented")
+//}
