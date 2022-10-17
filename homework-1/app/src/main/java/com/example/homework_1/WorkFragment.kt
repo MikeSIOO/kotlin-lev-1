@@ -1,7 +1,6 @@
 package com.example.homework_1
 
 import android.content.res.Configuration
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,10 +11,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class WorkFragment : Fragment() {
-    // TODO сделать добавление в память
     private val ELEMENTS = "Elements"
-//    private var counter: Int = 0
-    private var dies: MutableList<Die> = mutableListOf()
+    private var dies: ArrayList<Die> = ArrayList()
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var myAdapter: MyAdapter
@@ -26,8 +23,7 @@ class WorkFragment : Fragment() {
     ): View? {
         if (savedInstanceState != null) {
 //            dies = savedInstanceState.getParcelableArrayList(ELEMENTS)!!
-//            dies = savedInstanceState.getSerializable(ELEMENTS)
-//            counter = savedInstanceState.getInt(ELEMENTS)
+            dies = savedInstanceState.getSerializable(ELEMENTS) as ArrayList<Die>
         }
         val myView: View = inflater.inflate(R.layout.fragment_work, container, false)
         recyclerView = myView.findViewById(R.id.recyclerView)
@@ -44,7 +40,7 @@ class WorkFragment : Fragment() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
 //        outState.putParcelableArrayList(ELEMENTS, dies)
-//        outState.putInt(ELEMENTS, counter)
+        outState.putSerializable(ELEMENTS, dies)
     }
 
     fun createDie() {
