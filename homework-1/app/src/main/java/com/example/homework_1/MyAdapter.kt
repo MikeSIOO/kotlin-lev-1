@@ -29,4 +29,13 @@ class MyAdapter(
         val textView: TextView = itemView.findViewById(R.id.textView)
         val background: ConstraintLayout = itemView.findViewById(R.id.background)
     }
+
+    fun addAll(items: ArrayList<Die>) {
+        dies?.clear()
+        dies?.addAll(items)
+    }
+
+//    fun addAll(items: ArrayList<Die>) {
+//        dies?.addAll(items)
+//    }
 }

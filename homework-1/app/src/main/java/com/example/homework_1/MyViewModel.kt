@@ -6,15 +6,19 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MyViewModel : ViewModel() {
-    private var diesLiveData: MutableLiveData<ArrayList<Die>> = MutableLiveData()
+    private var _list: MutableLiveData<ArrayList<Die>> = MutableLiveData()
+    val list: LiveData<ArrayList<Die>> = _list
 
-    fun getDies(): LiveData<ArrayList<Die>> {
-        return diesLiveData
-    }
+//    private val diesLiveData: MutableLiveData<ArrayList<Die>> = MutableLiveData()
+
+//    fun getDies(): LiveData<ArrayList<Die>> {
+//        return diesLiveData
+//    }
 
     fun addDie() {
         val diesList = arrayListOf<Die>()
-        for (i in 0..(diesLiveData.value?.size ?: 0)) {
+        for (i in 0..(_list.value?.size ?: 0)) {
+//        for (i in 0..(diesLiveData.value?.size ?: 0)) {
             diesList.add(
                 Die(
                     if (diesList.size % 2 != 0) {
@@ -27,6 +31,7 @@ class MyViewModel : ViewModel() {
                 )
             )
         }
-        diesLiveData = MutableLiveData(diesList)
+        _list = MutableLiveData(diesList)
+//        diesLiveData = MutableLiveData(diesList)
     }
 }

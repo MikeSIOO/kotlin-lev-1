@@ -21,19 +21,24 @@ class WorkFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val myView: View = inflater.inflate(R.layout.fragment_work, container, false)
+
         recyclerView = myView.findViewById(R.id.recyclerView)
-        myAdapter = MyAdapter(myViewModel.getDies().value)
+        myAdapter = MyAdapter(myViewModel.list.value) // положил в адаптер
+//        myAdapter = MyAdapter(myViewModel.getDies().value) // положил в адаптер
         recyclerView.adapter = myAdapter
+
+        val nameObserver = Observer<ArrayList<Die>> { items -> // отслеживаю изменения
+            myAdapter.addAll(items)
+            myAdapter.notifyDataSetChanged() // отрисовываю изменения
+        }
+        myViewModel.list.observe(viewLifecycleOwner, nameObserver)
+//        myViewModel.getDies().observe(viewLifecycleOwner, nameObserver)
+
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             recyclerView.layoutManager = GridLayoutManager(myView.context, 3)
         } else {
             recyclerView.layoutManager = GridLayoutManager(myView.context, 4)
         }
-
-        val nameObserver = Observer<ArrayList<Die>> { _ ->
-            myAdapter.notifyDataSetChanged()
-        }
-        myViewModel.getDies().observe(viewLifecycleOwner, nameObserver)
 
         return myView
     }
