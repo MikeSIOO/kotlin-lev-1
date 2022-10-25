@@ -5,15 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class WorkFragment : Fragment() {
-    private val ELEMENTS = "Elements"
-    private var dies: ArrayList<Die> = ArrayList()
-
+    private val myViewModel: MyViewModel by viewModels()
     private lateinit var recyclerView: RecyclerView
     private lateinit var myAdapter: MyAdapter
 
@@ -21,35 +20,21 @@ class WorkFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        if (savedInstanceState != null) {
-//            dies = savedInstanceState.getParcelableArrayList(ELEMENTS)!!
-            dies = savedInstanceState.getSerializable(ELEMENTS) as ArrayList<Die>
-        }
         val myView: View = inflater.inflate(R.layout.fragment_work, container, false)
         recyclerView = myView.findViewById(R.id.recyclerView)
-        myAdapter = MyAdapter(dies)
+        myAdapter = MyAdapter(myViewModel.getDies().value)
         recyclerView.adapter = myAdapter
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             recyclerView.layoutManager = GridLayoutManager(myView.context, 3)
         } else {
             recyclerView.layoutManager = GridLayoutManager(myView.context, 4)
         }
+
+        val nameObserver = Observer<ArrayList<Die>> { _ ->
+            myAdapter.notifyDataSetChanged()
+        }
+        myViewModel.getDies().observe(viewLifecycleOwner, nameObserver)
+
         return myView
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-//        outState.putParcelableArrayList(ELEMENTS, dies)
-        outState.putSerializable(ELEMENTS, dies)
-    }
-
-    fun createDie() {
-        dies.add(Die(
-            if (dies.size % 2 != 0) {
-                ContextCompat.getColor(requireView().context, R.color.red)
-            } else {
-                ContextCompat.getColor(requireView().context, R.color.blue)
-            }))
-        myAdapter.notifyDataSetChanged()
     }
 }

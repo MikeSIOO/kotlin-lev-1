@@ -1,19 +1,19 @@
 package com.example.homework_1
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 
-interface OnButtonListener {
-    fun onButton()
-}
-
-//class ButtonFragment : Fragment() {
-class ButtonFragment : Fragment(), View.OnClickListener {
-//    private lateinit var button: Button
+class ButtonFragment : Fragment() {
+    private val myViewModel: MyViewModel by viewModels()
+    private lateinit var button: Button
+    private val diesList: ArrayList<Die> = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,18 +25,9 @@ class ButtonFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val button: Button = view.findViewById(R.id.button)
-        button.setOnClickListener(this)
-//        button = view.findViewById(R.id.button)
-//        button.setOnClickListener()
-    }
-
-    override fun onClick(v: View?) {
-        val listener = activity as OnButtonListener?
-        listener?.onButton()
+        button = view.findViewById(R.id.button)
+        button.setOnClickListener {
+            myViewModel.addDie()
+        }
     }
 }
-
-//private fun Button.setOnClickListener() {
-//    TODO("Not yet implemented")
-//}
