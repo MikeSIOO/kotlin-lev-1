@@ -17,7 +17,7 @@ class MyAdapter(
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        holder.textView.text = (position+1).toString()
+        holder.textView.text = (position + 1).toString()
         holder.background.setBackgroundColor(dies?.get(position)?.color ?: Color.BLACK)
     }
 
