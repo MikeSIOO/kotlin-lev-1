@@ -10,10 +10,6 @@ class MyViewModel : ViewModel() {
 
     val list: LiveData<ArrayList<Die>> = diesLiveData
 
-//    fun getDies(): LiveData<ArrayList<Die>> {
-//        return diesLiveData
-//    }
-
     fun addDie() {
         val diesList = arrayListOf<Die>()
         for (i in 0..(diesLiveData.value?.size ?: 0)) {
@@ -29,7 +25,6 @@ class MyViewModel : ViewModel() {
                 )
             )
         }
-//        diesLiveData = MutableLiveData(diesList)
         diesLiveData.value = diesList
     }
 }
