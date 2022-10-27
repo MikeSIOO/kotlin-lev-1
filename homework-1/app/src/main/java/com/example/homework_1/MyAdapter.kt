@@ -10,6 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapter(
+    // TODO можно ли нормально перейти на val
     private var dies: ArrayList<Die>?,
 ) : RecyclerView.Adapter<MyAdapter.MyHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {

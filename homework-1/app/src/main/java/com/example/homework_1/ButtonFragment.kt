@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.lifecycle.ViewModelProvider
 
 class ButtonFragment : Fragment() {
@@ -23,7 +24,8 @@ class ButtonFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        myViewModel = ViewModelProvider(requireActivity())[MyViewModel::class.java]
+        myViewModel = ViewModelProvider(requireActivity(), SavedStateViewModelFactory())[MyViewModel::class.java]
+//        myViewModel = ViewModelProvider(requireActivity())[MyViewModel::class.java]
 
         button = view.findViewById(R.id.button)
         button.setOnClickListener {

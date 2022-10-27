@@ -3,14 +3,17 @@ package com.example.homework_1
 import android.graphics.Color
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 
-class MyViewModel : ViewModel() {
+class MyViewModel(state : SavedStateHandle) : ViewModel() {
+//class MyViewModel : ViewModel() {
     private val diesLiveData: MutableLiveData<ArrayList<Die>> = MutableLiveData()
 
     val list: LiveData<ArrayList<Die>> = diesLiveData
 
     fun addDie() {
+        // TODO можно ли получать цвета из ресурсов
         val diesList = arrayListOf<Die>()
         for (i in 0..(diesLiveData.value?.size ?: 0)) {
             diesList.add(
