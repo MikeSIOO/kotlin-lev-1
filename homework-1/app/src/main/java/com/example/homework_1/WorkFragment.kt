@@ -28,14 +28,15 @@ class WorkFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         myViewModel = ViewModelProvider(requireActivity(), SavedStateViewModelFactory())[MyViewModel::class.java]
-//        myViewModel = ViewModelProvider(requireActivity())[MyViewModel::class.java]
 
         recyclerView = view.findViewById(R.id.recyclerView)
         myAdapter = MyAdapter(myViewModel.list.value) // положил в адаптер
         recyclerView.adapter = myAdapter
 
-        val nameObserver = Observer<ArrayList<Die>> { items -> // отслеживаю изменения
-            myAdapter.addAll(items)
+        val nameObserver = Observer<ArrayList<Die>> { _ -> // отслеживаю изменения
+            myAdapter = MyAdapter(myViewModel.list.value) // положил в адаптер
+            recyclerView.adapter = myAdapter
+
             myAdapter.notifyDataSetChanged() // отрисовываю изменения
         }
         myViewModel.list.observe(viewLifecycleOwner, nameObserver)

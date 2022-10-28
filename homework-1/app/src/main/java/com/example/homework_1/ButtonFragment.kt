@@ -25,7 +25,6 @@ class ButtonFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         myViewModel = ViewModelProvider(requireActivity(), SavedStateViewModelFactory())[MyViewModel::class.java]
-//        myViewModel = ViewModelProvider(requireActivity())[MyViewModel::class.java]
 
         button = view.findViewById(R.id.button)
         button.setOnClickListener {
