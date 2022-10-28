@@ -33,12 +33,11 @@ class WorkFragment : Fragment() {
         )[MyViewModel::class.java]
 
         recyclerView = view.findViewById(R.id.recyclerView)
-        myAdapter = MyAdapter(myViewModel.list.value!!) // положил в адаптер
+        myAdapter = MyAdapter() // положил в адаптер
         recyclerView.adapter = myAdapter
 
-        val nameObserver = Observer<ArrayList<Die>> { _ -> // отслеживаю изменения
-            myAdapter = MyAdapter(myViewModel.list.value!!) // положил в адаптер
-            recyclerView.adapter = myAdapter
+        val nameObserver = Observer<ArrayList<Die>> { item -> // отслеживаю изменения
+            myAdapter.changeData(item)
 
             myAdapter.notifyDataSetChanged() // отрисовываю изменения
         }

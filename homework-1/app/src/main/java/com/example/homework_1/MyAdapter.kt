@@ -5,8 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapter(
-    private val dies: ArrayList<Die>,
 ) : RecyclerView.Adapter<MyHolder>() {
+    private val dies: ArrayList<Die> = arrayListOf()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.die, null)
         return MyHolder(itemView)
@@ -19,5 +20,10 @@ class MyAdapter(
 
     override fun getItemCount(): Int {
         return dies.size
+    }
+
+    fun changeData(item: ArrayList<Die>) {
+        dies.clear()
+        dies.addAll(item)
     }
 }
