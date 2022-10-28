@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.lifecycle.ViewModelProvider
 
@@ -28,7 +29,7 @@ class ButtonFragment : Fragment() {
 
         button = view.findViewById(R.id.button)
         button.setOnClickListener {
-            myViewModel.addDie()
+            myViewModel.addDie(ContextCompat.getColor(requireView().context, R.color.red), ContextCompat.getColor(requireView().context, R.color.blue))
         }
     }
 }

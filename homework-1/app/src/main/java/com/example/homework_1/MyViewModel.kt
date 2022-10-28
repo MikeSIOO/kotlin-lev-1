@@ -1,6 +1,5 @@
 package com.example.homework_1
 
-import android.graphics.Color
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
@@ -13,21 +12,10 @@ class MyViewModel(state : SavedStateHandle) : ViewModel() {
 
     val list: LiveData<ArrayList<Die>> = diesLiveData
 
-    fun addDie() {
-        // TODO можно ли получать цвета из ресурсов
+    fun addDie(redColor: Int, blueColor: Int) {
         val diesList = arrayListOf<Die>()
         for (i in 0..(diesLiveData.value?.size ?: 0)) {
-            diesList.add(
-                Die(
-                    if (diesList.size % 2 != 0) {
-                        Color.RED
-//                        ContextCompat.getColor(requireView().context, R.color.red)
-                    } else {
-                        Color.BLUE
-//                        ContextCompat.getColor(requireView().context, R.color.blue)
-                    }
-                )
-            )
+            diesList.add(Die(if (diesList.size % 2 != 0) redColor else blueColor))
         }
         diesLiveData.value = diesList
     }

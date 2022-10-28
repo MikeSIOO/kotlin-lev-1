@@ -1,7 +1,6 @@
 package com.example.homework_1
 
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapter(
-    // TODO можно ли нормально перейти на val
-    private var dies: ArrayList<Die>?,
+    private val dies: ArrayList<Die>?,
 ) : RecyclerView.Adapter<MyAdapter.MyHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.die, null)
@@ -30,10 +28,5 @@ class MyAdapter(
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textView: TextView = itemView.findViewById(R.id.textView)
         val background: ConstraintLayout = itemView.findViewById(R.id.background)
-    }
-
-    fun addAll(items: ArrayList<Die>) {
-        dies?.clear()
-        if (dies.isNullOrEmpty()) dies = items else dies?.addAll(items)
     }
 }
