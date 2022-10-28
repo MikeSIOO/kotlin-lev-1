@@ -25,11 +25,17 @@ class ButtonFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        myViewModel = ViewModelProvider(requireActivity(), SavedStateViewModelFactory())[MyViewModel::class.java]
+        myViewModel = ViewModelProvider(
+            requireActivity(),
+            SavedStateViewModelFactory()
+        )[MyViewModel::class.java]
 
         button = view.findViewById(R.id.button)
         button.setOnClickListener {
-            myViewModel.addDie(ContextCompat.getColor(requireView().context, R.color.red), ContextCompat.getColor(requireView().context, R.color.blue))
+            myViewModel.addDie(
+                ContextCompat.getColor(requireView().context, R.color.red),
+                ContextCompat.getColor(requireView().context, R.color.blue)
+            )
         }
     }
 }

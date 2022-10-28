@@ -5,10 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 
-class MyViewModel(state : SavedStateHandle) : ViewModel() {
+class MyViewModel(state: SavedStateHandle) : ViewModel() {
     private val savedStateHandle: SavedStateHandle = state
 
-    private val diesLiveData: MutableLiveData<ArrayList<Die>> = savedStateHandle.getLiveData("SAVED", arrayListOf())
+    private val diesLiveData: MutableLiveData<ArrayList<Die>> =
+        savedStateHandle.getLiveData("SAVED", arrayListOf())
 
     val list: LiveData<ArrayList<Die>> = diesLiveData
 
