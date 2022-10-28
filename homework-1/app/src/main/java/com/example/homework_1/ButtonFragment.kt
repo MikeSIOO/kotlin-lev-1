@@ -11,7 +11,7 @@ import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.lifecycle.ViewModelProvider
 
 class ButtonFragment : Fragment() {
-    private lateinit var myViewModel: MyViewModel
+    private lateinit var diesViewModel: DiesViewModel
     private lateinit var button: Button
 
     override fun onCreateView(
@@ -25,14 +25,14 @@ class ButtonFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        myViewModel = ViewModelProvider(
+        diesViewModel = ViewModelProvider(
             requireActivity(),
             SavedStateViewModelFactory()
-        )[MyViewModel::class.java]
+        )[DiesViewModel::class.java]
 
         button = view.findViewById(R.id.button)
         button.setOnClickListener {
-            myViewModel.addDie(
+            diesViewModel.addDie(
                 ContextCompat.getColor(requireView().context, R.color.red),
                 ContextCompat.getColor(requireView().context, R.color.blue)
             )

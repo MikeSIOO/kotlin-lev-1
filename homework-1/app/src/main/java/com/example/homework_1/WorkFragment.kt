@@ -6,14 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class WorkFragment : Fragment() {
-    private lateinit var myViewModel: MyViewModel
+    private lateinit var diesViewModel: DiesViewModel
     private lateinit var recyclerView: RecyclerView
     private lateinit var myAdapter: MyAdapter
 
@@ -27,21 +26,19 @@ class WorkFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        myViewModel = ViewModelProvider(
+        diesViewModel = ViewModelProvider(
             requireActivity(),
             SavedStateViewModelFactory()
-        )[MyViewModel::class.java]
+        )[DiesViewModel::class.java]
 
         recyclerView = view.findViewById(R.id.recyclerView)
-        myAdapter = MyAdapter() // положил в адаптер
+        myAdapter = MyAdapter()
         recyclerView.adapter = myAdapter
 
-        val nameObserver = Observer<ArrayList<Die>> { item -> // отслеживаю изменения
+        diesViewModel.dies.observe(viewLifecycleOwner) { item ->
             myAdapter.changeData(item)
-
-            myAdapter.notifyDataSetChanged() // отрисовываю изменения
+            myAdapter.notifyDataSetChanged()
         }
-        myViewModel.list.observe(viewLifecycleOwner, nameObserver)
 
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             recyclerView.layoutManager = GridLayoutManager(view.context, 3)
