@@ -4,4 +4,4 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Die(val color: Int) : Parcelable
+data class Die(val num: Int, val color: Int) : Parcelable

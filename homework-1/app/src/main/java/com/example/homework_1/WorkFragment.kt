@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.replace
 import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -23,6 +25,10 @@ class WorkFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_work, container, false)
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -32,7 +38,9 @@ class WorkFragment : Fragment() {
         )[DiesViewModel::class.java]
 
         recyclerView = view.findViewById(R.id.recyclerView)
-        myAdapter = MyAdapter()
+        myAdapter = MyAdapter() { die ->
+            parentFragmentManager.beginTransaction().replace(R.id.container, NewFrag.newInstance(die)).addToBackStack(null).commit()
+        }
         recyclerView.adapter = myAdapter
 
         diesViewModel.dies.observe(viewLifecycleOwner) { item ->
@@ -40,10 +48,12 @@ class WorkFragment : Fragment() {
             myAdapter.notifyDataSetChanged()
         }
 
-        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            recyclerView.layoutManager = GridLayoutManager(view.context, 3)
-        } else {
-            recyclerView.layoutManager = GridLayoutManager(view.context, 4)
-        }
+        val columnCount = resources.getInteger(R.integer.column_count)
+        recyclerView.layoutManager = GridLayoutManager(view.context, columnCount)
+//        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+//            recyclerView.layoutManager = GridLayoutManager(view.context, 3)
+//        } else {
+//            recyclerView.layoutManager = GridLayoutManager(view.context, 4)
+//        }
     }
 }

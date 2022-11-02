@@ -6,20 +6,26 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <fragment
-        android:id="@+id/fragment_work"
-        android:name="com.example.homework_1.WorkFragment"
+<!--    <fragment-->
+<!--        android:id="@+id/fragment_work"-->
+<!--        android:name="com.example.homework_1.WorkFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_weight="1"-->
+<!--        tools:layout="@layout/fragment_work" />-->
+
+    <androidx.fragment.app.FragmentContainerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/container"
         android:layout_weight="1"
-        tools:layout="@layout/fragment_work" />
+        />
 
     <fragment
         android:id="@+id/fragment_button"
         android:name="com.example.homework_1.ButtonFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="5"
+        android:layout_height="wrap_content"
         tools:layout="@layout/fragment_button" />
 
 </LinearLayout>

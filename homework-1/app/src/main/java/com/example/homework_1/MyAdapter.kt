@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class MyAdapter : RecyclerView.Adapter<MyHolder>() {
+class MyAdapter(private val callback: (die: Die) -> Unit) : RecyclerView.Adapter<MyHolder>() {
     private val dies: ArrayList<Die> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
@@ -15,6 +15,9 @@ class MyAdapter : RecyclerView.Adapter<MyHolder>() {
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         holder.textView.text = (position + 1).toString()
         holder.background.setBackgroundColor(dies[position].color)
+        holder.background.setOnClickListener {
+            callback(dies[position])
+        }
     }
 
     override fun getItemCount(): Int {
