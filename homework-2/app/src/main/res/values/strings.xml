@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">homework-2</string>
+    <string name="app_name">Работа со списками и сетью</string>
+    <string name="button_text">Загрузить</string>
 </resources>
