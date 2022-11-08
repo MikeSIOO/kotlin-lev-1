@@ -1,9 +1,7 @@
 package com.example.homework_2
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapter(private var images: ArrayList<MyImage>) : RecyclerView.Adapter<MyHolder>() {
