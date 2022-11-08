@@ -6,9 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 
 // Фрагмент для показа заглушки для подзагрузки данных
 class PlugFragment : Fragment() {
+    private lateinit var dataViewModel: DataViewModel
     private lateinit var button: Button
 
     override fun onCreateView(
@@ -22,17 +25,11 @@ class PlugFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        diesViewModel = ViewModelProvider(
-//            requireActivity(),
-//            SavedStateViewModelFactory()
-//        )[DiesViewModel::class.java]
+        dataViewModel = ViewModelProvider(requireActivity())[DataViewModel::class.java]
 
         button = view.findViewById(R.id.button)
         button.setOnClickListener {
-//            diesViewModel.addDie(
-//                ContextCompat.getColor(requireView().context, R.color.red),
-//                ContextCompat.getColor(requireView().context, R.color.blue)
-//            )
+            dataViewModel.newPage()
         }
     }
 }

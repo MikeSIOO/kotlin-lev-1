@@ -1,17 +1,21 @@
 package com.example.homework_2
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 // Фрагмент для показа данных
-class DataFragment :Fragment() {
-//    private lateinit var recyclerView: RecyclerView
-//    private lateinit var myAdapter: MyAdapter
+class DataFragment : Fragment() {
+    private lateinit var dataViewModel: DataViewModel
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var myAdapter: MyAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,17 +28,17 @@ class DataFragment :Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        recyclerView = view.findViewById(R.id.recyclerView)
-//        myAdapter = MyAdapter { die ->
-//            parentFragmentManager.beginTransaction().replace(R.id.container, NewFrag.newInstance(die)).addToBackStack(null).commit()
-//        }
-//        recyclerView.adapter = myAdapter
+        dataViewModel = ViewModelProvider(requireActivity())[DataViewModel::class.java]
 
-//        diesViewModel.dies.observe(viewLifecycleOwner) { item ->
-//            myAdapter.changeData(item)
-//            myAdapter.notifyDataSetChanged()
-//        }
+        recyclerView = view.findViewById(R.id.recyclerView)
+        myAdapter = MyAdapter(dataViewModel.images.value!!)
+        recyclerView.adapter = myAdapter
 
-//        recyclerView.layoutManager = LinearLayoutManager(view.context)
+        dataViewModel.images.observe(viewLifecycleOwner) { item ->
+            myAdapter.changeData(item)
+            myAdapter.notifyDataSetChanged()
+        }
+
+        recyclerView.layoutManager = LinearLayoutManager(view.context)
     }
 }
