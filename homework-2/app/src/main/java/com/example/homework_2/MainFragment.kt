@@ -57,10 +57,8 @@ class MainFragment : Fragment() {
             } catch (error: Throwable) {
                 load.isVisible = false
                 stub.isVisible = true
-                stub.text = error.message
-                error.printStackTrace()
-                stub.setOnClickListener {
-                    // TODO reconnect
+                stub.setOnClickListener { _ ->
+                    onViewCreated(view, savedInstanceState)
                 }
             }
         }
