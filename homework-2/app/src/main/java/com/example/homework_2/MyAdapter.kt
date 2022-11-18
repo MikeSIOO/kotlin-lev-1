@@ -2,25 +2,20 @@ package com.example.homework_2
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.ListAdapter
 
-class MyAdapter(private var images: ArrayList<MyImage>) : RecyclerView.Adapter<MyHolder>() {
+class MyAdapter: ListAdapter<Item, MyHolder>(DifferentItemCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.element_image, null)
-        return MyHolder(itemView)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
+        return MyHolder(view)
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        holder.imageView.setImageResource(images[position].img)
+        val item = getItem(position)
+        holder.bind(item)
     }
 
-    override fun getItemCount(): Int {
-        return images.size
-    }
-
-    fun changeData(item: ArrayList<MyImage>) {
-//        images.clear()
-//        images.addAll(item)
-        images = item
-    }
+//    override fun getItemCount(): Int {
+//        return dies.size
+//    }
 }
