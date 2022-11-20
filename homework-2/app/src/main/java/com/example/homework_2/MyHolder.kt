@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
 
 import com.squareup.picasso.Picasso
 
@@ -21,8 +22,7 @@ class MyHolder(view: View): RecyclerView.ViewHolder(view) {
             .load(url)
             .placeholder(R.drawable.ic_launcher_foreground)
             .error(R.mipmap.ic_launcher_round)
-//            .override(1000)
-            .centerCrop()
+            .fitCenter()
             .into(image)
     }
 }

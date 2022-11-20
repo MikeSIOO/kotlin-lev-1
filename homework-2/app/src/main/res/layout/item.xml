@@ -15,8 +15,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:background="#eeeeee"
-
-        android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         />
 
