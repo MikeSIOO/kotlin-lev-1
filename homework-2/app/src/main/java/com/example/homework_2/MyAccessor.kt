@@ -10,7 +10,7 @@ import retrofit2.http.Query
 interface IAccessor {
     // TODO string from res
     @GET("/api/cats")
-    suspend fun getItems(@Query("skip") offset: Int, @Query("limit") limit: Int) : List<Item>
+    suspend fun getItems(@Query("limit") limit: Int, @Query("skip") offset: Int) : List<Item>
 
     // static
     companion object {

@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
@@ -39,7 +41,7 @@ class MainFragment : Fragment() {
         }
 
         val stub = view.findViewById<TextView>(R.id.stub)
-        val load = view.findViewById<TextView>(R.id.load)
+        val load = view.findViewById<ProgressBar>(R.id.load)
 
 
         viewLifecycleOwner.lifecycleScope.launch {

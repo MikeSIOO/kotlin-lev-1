@@ -14,13 +14,10 @@
         android:layout_height="match_parent"
         />
 
-    <TextView
+    <ProgressBar
         android:id="@+id/load"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/load"
-        android:background="@color/white"
-        android:gravity="center"
 
         android:visibility="gone"
         />
