@@ -9,8 +9,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, MainFragment.newInstance())
-            .commit()
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction().add(R.id.container, MainFragment()).commit()
+        }
     }
 }

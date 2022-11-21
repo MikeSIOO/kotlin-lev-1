@@ -11,6 +11,8 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.SavedStateViewModelFactory
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,8 +21,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MainFragment : Fragment() {
-
-    private val viewModel by viewModels<MyViewModel>()
+    private lateinit var myViewModel: MyViewModel
 
     private val myAdapter = MyAdapter()
 
@@ -34,6 +35,11 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        myViewModel = ViewModelProvider(
+            requireActivity(),
+            SavedStateViewModelFactory()
+        )[MyViewModel::class.java]
 
         view.findViewById<RecyclerView>(R.id.recycler).apply {
             layoutManager = LinearLayoutManager(context)
@@ -51,7 +57,7 @@ class MainFragment : Fragment() {
             stub.setOnClickListener(null)
 
             try {
-                val list = withContext(Dispatchers.IO) { viewModel.getItems() }
+                val list = withContext(Dispatchers.IO) { myViewModel.getItems() }
                 myAdapter.submitList(list)
 
                 load.isVisible = false
@@ -65,10 +71,5 @@ class MainFragment : Fragment() {
                 }
             }
         }
-    }
-
-    // TODO вынести во фрагмент
-    companion object {
-        fun newInstance() = MainFragment()
     }
 }
