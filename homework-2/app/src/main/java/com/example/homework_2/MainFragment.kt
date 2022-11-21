@@ -47,6 +47,10 @@ class MainFragment : Fragment() {
         val stub = view.findViewById<TextView>(R.id.stub)
         val load = view.findViewById<ProgressBar>(R.id.load)
 
+        myViewModel.items.observe(viewLifecycleOwner) { item ->
+            myAdapter.refreshList(item)
+            myAdapter.notifyDataSetChanged()
+        }
 
         // TODO перенести во вьюмодель
         viewLifecycleOwner.lifecycleScope.launch {
@@ -55,8 +59,7 @@ class MainFragment : Fragment() {
             stub.setOnClickListener(null)
 
             try {
-                val list = withContext(Dispatchers.IO) { myViewModel.getItems() }
-                myAdapter.submitList(list)
+                myViewModel.getItems()
 
                 load.isVisible = false
                 stub.isVisible = false
@@ -64,6 +67,7 @@ class MainFragment : Fragment() {
             } catch (error: Throwable) {
                 load.isVisible = false
                 stub.isVisible = true
+                error.printStackTrace()
                 stub.setOnClickListener { _ ->
                     onViewCreated(view, savedInstanceState)
                 }
