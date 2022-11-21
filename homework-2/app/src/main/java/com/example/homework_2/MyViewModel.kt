@@ -1,28 +1,41 @@
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.ViewModel
-import com.example.homework_2.Item
-import com.example.homework_2.PassContextToProvider
+package com.example.homework_2
+
+import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MyViewModel(private val state: SavedStateHandle) : ViewModel() {
-    private val KEY = "KEY"
+    private val itemsKey = "LIST_ITEMS"
+    private val _items: MutableLiveData<ArrayList<Item>> =
+        state.getLiveData(itemsKey, arrayListOf())
+    val items: LiveData<ArrayList<Item>> = _items
 
-    private val mutableLiveData: MutableLiveData<ArrayList<Item>> =
-        state.getLiveData(KEY, arrayListOf())
-
-    val items: LiveData<ArrayList<Item>> = mutableLiveData
+    private val statusKey = "STATUS_LOADING"
+    private var _status: MutableLiveData<Int> =
+        state.getLiveData(statusKey, 0)
+    val status: LiveData<Int> = _status
 
     private val provider = PassContextToProvider.provider()
 
-    // TODO pagination
-    // TODO numbers from res resources.getInteger(R.integer.column_count)
-    suspend fun getItems() {
-        val list = withContext(Dispatchers.IO) {
-            provider.getItems(10, 0)
+    init {
+        getItems(10, 0)
+    }
+
+    // TODO не надо только меня бить за R.integer.)
+    fun getItems(limit: Int, offset: Int) {
+        viewModelScope.launch {
+            _status.value = R.integer.loading
+            try {
+                val list = withContext(Dispatchers.IO) {
+                    provider.getItems(limit, offset)
+                }
+                _status.value = R.integer.succsess
+                _items.value = list
+            } catch (error: Throwable) {
+                _status.value = R.integer.error
+                error.printStackTrace()
+            }
         }
-        mutableLiveData.value = list
     }
 }
