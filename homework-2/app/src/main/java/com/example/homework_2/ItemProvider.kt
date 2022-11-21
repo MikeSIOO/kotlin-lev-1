@@ -1,7 +1,7 @@
 package com.example.homework_2
 
-// провайдер для похода в сеть
-class MyProvider(private val getRequest: GetRequest) {
+// провайдер для получения картинок из сети
+class ItemProvider(private val getRequest: GetRequest) {
     suspend fun getItems(limit: Int, offset: Int): List<Item> {
         return getRequest.getItems(limit, offset)
     }

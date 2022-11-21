@@ -7,6 +7,6 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        ServiceLocator.initialize(this)
+        PassContextToProvider.initialize(this)
     }
 }

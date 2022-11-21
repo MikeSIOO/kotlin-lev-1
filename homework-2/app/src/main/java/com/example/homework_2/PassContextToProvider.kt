@@ -5,7 +5,7 @@ import android.content.Context
 
 // получение контекста
 @SuppressLint("StaticFieldLeak")
-object ServiceLocator {
+object PassContextToProvider {
     lateinit var context: Context
 
     private val request by lazy { DescriptionRequest.create(context.getString(R.string.base_url))  }
@@ -14,7 +14,7 @@ object ServiceLocator {
         this.context = context.applicationContext
     }
 
-    fun provider(): MyProvider {
-        return MyProvider(request)
+    fun provider(): ItemProvider {
+        return ItemProvider(request)
     }
 }
