@@ -44,6 +44,7 @@ class MainFragment : Fragment() {
         val load = view.findViewById<ProgressBar>(R.id.load)
 
 
+        // TODO перенести во вьюмодель
         viewLifecycleOwner.lifecycleScope.launch {
             load.isVisible = true
             stub.isVisible = false
@@ -66,6 +67,7 @@ class MainFragment : Fragment() {
         }
     }
 
+    // TODO вынести во фрагмент
     companion object {
         fun newInstance() = MainFragment()
     }

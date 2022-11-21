@@ -7,13 +7,13 @@ import android.content.Context
 object ServiceLocator {
     lateinit var context: Context
 
-    private val accessor by lazy { IAccessor.create(context.getString(R.string.base_url))  }
+    private val request by lazy { DescriptionRequest.create(context.getString(R.string.base_url))  }
 
     fun initialize(context: Context) {
         this.context = context.applicationContext
     }
 
     fun provider(): MyProvider {
-        return MyProvider(accessor)
+        return MyProvider(request)
     }
 }

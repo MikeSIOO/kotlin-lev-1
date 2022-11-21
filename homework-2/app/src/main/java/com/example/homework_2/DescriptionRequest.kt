@@ -4,17 +4,10 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Query
 
-interface IAccessor {
-    // TODO string from res
-    @GET("/api/cats")
-    suspend fun getItems(@Query("limit") limit: Int, @Query("skip") offset: Int) : List<Item>
-
-    // static
+class DescriptionRequest {
     companion object {
-        fun create(baseUrl: String): IAccessor {
+        fun create(baseUrl: String): GetRequest {
             val loggingInterceptor = HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
             }
@@ -29,7 +22,7 @@ interface IAccessor {
                 baseUrl(baseUrl)
             }.build()
 
-            return retrofit.create(IAccessor::class.java)
+            return retrofit.create(GetRequest::class.java)
         }
     }
 }
