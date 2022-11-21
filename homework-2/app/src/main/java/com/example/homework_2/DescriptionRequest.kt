@@ -5,6 +5,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+// описание запроса к api
 class DescriptionRequest {
     companion object {
         fun create(baseUrl: String): GetRequest {

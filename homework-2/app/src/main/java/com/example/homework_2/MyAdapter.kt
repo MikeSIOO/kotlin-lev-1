@@ -15,6 +15,7 @@ class MyAdapter: ListAdapter<Item, MyHolder>(DifferentItemCallback()) {
         holder.bind(item)
     }
 
+// TODO почему работает без него
 //    override fun getItemCount(): Int {
 //        return dies.size
 //    }

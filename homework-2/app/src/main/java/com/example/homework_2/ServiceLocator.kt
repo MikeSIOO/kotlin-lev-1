@@ -3,6 +3,7 @@ package com.example.homework_2
 import android.annotation.SuppressLint
 import android.content.Context
 
+// получение контекста
 @SuppressLint("StaticFieldLeak")
 object ServiceLocator {
     lateinit var context: Context
