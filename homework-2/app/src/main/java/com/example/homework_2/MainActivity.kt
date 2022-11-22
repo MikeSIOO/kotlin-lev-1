@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.homework_2.presentation.view.MainFragment
 
 // TODO Сделать КЭШ
-// datastore 15
-// sqllite 1.05
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

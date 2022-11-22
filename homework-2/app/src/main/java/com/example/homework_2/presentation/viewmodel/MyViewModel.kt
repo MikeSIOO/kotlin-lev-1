@@ -31,12 +31,10 @@ class MyViewModel(private val state: SavedStateHandle) : ViewModel() {
             _status.value = R.integer.loading
             try {
                 val request = withContext(Dispatchers.IO) {
-//                val list = withContext(Dispatchers.IO) {
                     provider.getItems(limit, offset)
                 }
                 _status.value = R.integer.succsess
                 _items.value = request.data
-//                _items.value = list
             } catch (error: Throwable) {
                 _status.value = R.integer.error
                 error.printStackTrace()

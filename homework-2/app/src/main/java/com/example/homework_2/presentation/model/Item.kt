@@ -5,9 +5,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 // Элемент, полученный по сети
-@Parcelize
-//data class Item(@SerializedName("_id") var id: String = "") : Parcelable
-data class Request(@SerializedName("data") var data: ArrayList<Item> = arrayListOf()) : Parcelable
+data class Request(@SerializedName("data") var data: ArrayList<Item> = arrayListOf())
 
 @Parcelize
 data class Item(@SerializedName("data") var id: String = "",
