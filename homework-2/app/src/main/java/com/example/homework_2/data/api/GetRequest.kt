@@ -6,7 +6,6 @@ import retrofit2.http.Query
 
 // интерфейс запроса к сервису
 interface GetRequest {
-    // TODO string from res
     @GET("/v1/gifs/search")
     suspend fun getItems(@Query("api_key") api_key: String,
                          @Query("q") q: String,

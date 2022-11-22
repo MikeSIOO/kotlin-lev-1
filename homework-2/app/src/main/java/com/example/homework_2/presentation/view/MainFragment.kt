@@ -70,7 +70,6 @@ class MainFragment : Fragment() {
 
         // TODO pagination
 //        val page = 1
-//        myViewModel.getItems(resources.getInteger(R.integer.limit),
-//            (page - 1) * resources.getInteger(R.integer.limit))
+//        myViewModel.getItems(page)
     }
 }
