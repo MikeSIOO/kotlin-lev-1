@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Работа со списками и сетью</string>
     <string name="button_text">Загрузить</string>
-    <string name="base_url">https://cataas.com/</string>
+    <string name="base_url">https://api.giphy.com/</string>
+<!--    <string name="base_url">https://cataas.com/</string>-->
     <string name="search_url">https://cataas.com/</string>
     <string name="image_url">cat/</string>
     <string name="load">Загрузка…</string>

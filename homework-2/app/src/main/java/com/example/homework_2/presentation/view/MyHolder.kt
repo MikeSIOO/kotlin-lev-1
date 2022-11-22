@@ -12,7 +12,8 @@ class MyHolder(view: View): RecyclerView.ViewHolder(view) {
     private val context by lazy { view.context }
 
     fun bind(item: Item) {
-        val url = context.getString(R.string.base_url) + context.getString(R.string.image_url) + item.id
+        val url = item.images.fixed_width.url
+//        val url =  context.getString(R.string.base_url) + context.getString(R.string.image_url) + item.id
 
         Glide
             .with(context)
