@@ -1,5 +1,6 @@
-package com.example.homework_2
+package com.example.homework_2.data.entities
 
+import com.example.homework_2.data.api.GetRequest
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

@@ -1,7 +1,6 @@
-package com.example.homework_2
+package com.example.homework_2.presentation.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +12,8 @@ import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.homework_2.presentation.viewmodel.MyViewModel
+import com.example.homework_2.R
 
 class MainFragment : Fragment() {
     private lateinit var myViewModel: MyViewModel

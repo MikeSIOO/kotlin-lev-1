@@ -1,8 +1,10 @@
-package com.example.homework_2
+package com.example.homework_2.presentation.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
+import com.example.homework_2.R
+import com.example.homework_2.presentation.model.Item
 
 class MyAdapter: ListAdapter<Item, MyHolder>(DifferentItemCallback()) {
     private val items: ArrayList<Item> = arrayListOf()

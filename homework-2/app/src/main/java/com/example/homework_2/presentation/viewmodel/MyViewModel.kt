@@ -1,6 +1,9 @@
-package com.example.homework_2
+package com.example.homework_2.presentation.viewmodel
 
 import androidx.lifecycle.*
+import com.example.homework_2.utils.PassContextToProvider
+import com.example.homework_2.R
+import com.example.homework_2.presentation.model.Item
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

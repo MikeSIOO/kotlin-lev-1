@@ -1,6 +1,7 @@
-package com.example.homework_2
+package com.example.homework_2.presentation.view
 
 import androidx.recyclerview.widget.DiffUtil
+import com.example.homework_2.presentation.model.Item
 
 // указать были ли изменения в элементах (для адаптера)
 class DifferentItemCallback: DiffUtil.ItemCallback<Item>() {

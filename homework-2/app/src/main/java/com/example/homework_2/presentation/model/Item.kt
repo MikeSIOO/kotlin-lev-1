@@ -1,4 +1,4 @@
-package com.example.homework_2
+package com.example.homework_2.presentation.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
