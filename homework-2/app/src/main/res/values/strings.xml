@@ -2,13 +2,4 @@
     <string name="app_name">Работа со списками и сетью</string>
     <string name="button_text">Загрузить</string>
     <string name="base_url">https://api.giphy.com/</string>
-<!--    <string name="base_url">https://cataas.com/</string>-->
-<!--    <string name="search_url">https://cataas.com/</string>-->
-    <string name="image_url">cat/</string>
-    <string name="load">Загрузка…</string>
-    <string name="stub">Ошибка!</string>
-<!--    <string name="api_key">9FF4Dz6pMk2JDlphgZOMSOU4l4fBWNII</string>-->
-<!--    <string name="q">cat</string>-->
-<!--    <string name="rating">g</string>-->
-<!--    <string name="lang">en</string>-->
 </resources>

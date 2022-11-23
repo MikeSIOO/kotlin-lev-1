@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <integer name="limit">10</integer>
-    <integer name="loading">0</integer>
-    <integer name="succsess">1</integer>
-    <integer name="error">2</integer>
-</resources>

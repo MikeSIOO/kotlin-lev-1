@@ -1,6 +1,7 @@
 package com.example.homework_2.presentation.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.homework_2.presentation.viewmodel.MyViewModel
 import com.example.homework_2.R
+import com.example.homework_2.StatusLoad
 
 class MainFragment : Fragment() {
     private lateinit var myViewModel: MyViewModel
@@ -49,18 +51,19 @@ class MainFragment : Fragment() {
         }
 
         myViewModel.status.observe(viewLifecycleOwner) { item ->
+            Log.i("!@#", item.toString())
             when (item) {
-                R.integer.loading -> {
+                StatusLoad.LOADING -> {
                     load.isVisible = true
                     stub.isVisible = false
                     stub.setOnClickListener(null)
                 }
-                R.integer.succsess -> {
+                StatusLoad.SUCCESS -> {
                     load.isVisible = false
                     stub.isVisible = false
                     stub.setOnClickListener(null)
                 }
-                R.integer.error -> {
+                StatusLoad.ERROR -> {
                     load.isVisible = false
                     stub.isVisible = true
                     stub.setOnClickListener { onViewCreated(view, savedInstanceState) }
@@ -69,7 +72,7 @@ class MainFragment : Fragment() {
         }
 
         // TODO pagination
-//        val page = 1
-//        myViewModel.getItems(page)
+        val page = 1
+        myViewModel.getItems(page)
     }
 }
