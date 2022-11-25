@@ -7,11 +7,12 @@ import retrofit2.http.Query
 // интерфейс запроса к сервису
 interface GetRequest {
     @GET("/v1/gifs/search")
-    suspend fun getItems(@Query("api_key") api_key: String,
-                         @Query("q") q: String,
-                         @Query("limit") limit: Int,
-                         @Query("offset") offset: Int,
-                         @Query("rating") rating: String,
-                         @Query("lang") lang: String,
+    suspend fun getItems(
+        @Query("api_key") api_key: String,
+        @Query("q") q: String,
+        @Query("limit") limit: Int,
+        @Query("offset") offset: Int,
+        @Query("rating") rating: String,
+        @Query("lang") lang: String,
     ) : Request
 }

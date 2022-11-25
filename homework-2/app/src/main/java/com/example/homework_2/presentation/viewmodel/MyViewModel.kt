@@ -19,9 +19,9 @@ class MyViewModel(private val state: SavedStateHandle) : ViewModel() {
         state.getLiveData(statusKey, StatusLoad.LOADING)
     val status: LiveData<StatusLoad> = _status
 
-    private val pageKey = "PAGE"
-    private var _page: MutableLiveData<Int> =
-        state.getLiveData(pageKey, 1)
+//    private val pageKey = "PAGE"
+//    private var _page: MutableLiveData<Int> =
+//        state.getLiveData(pageKey, 1)
 
     private val provider = PassContextToProvider.provider()
 
@@ -32,8 +32,9 @@ class MyViewModel(private val state: SavedStateHandle) : ViewModel() {
                 val request = withContext(Dispatchers.IO) {
                     provider.getItems(page)
                 }
-                _status.value = StatusLoad.SUCCESS
                 _items.value = request.data
+                _status.value = StatusLoad.SUCCESS
+//                _page.value = page
             } catch (error: Throwable) {
                 _status.value = StatusLoad.ERROR
                 error.printStackTrace()

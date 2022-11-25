@@ -12,7 +12,7 @@ class ItemProvider(private val getRequest: GetRequest) {
             Response.API_KEY.value,
             Response.Q.value,
             Response.LIMIT.value.toInt(),
-            (page - 1) * Response.LIMIT.value.toInt(),
+            page * Response.LIMIT.value.toInt(),
             Response.RATING.value,
             Response.LANG.value)
     }

@@ -1,7 +1,6 @@
 package com.example.homework_2.presentation.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -45,14 +44,13 @@ class MainFragment : Fragment() {
             adapter = myAdapter
         }
 
-        myViewModel.items.observe(viewLifecycleOwner) { item ->
-            myAdapter.refreshList(item)
+        myViewModel.items.observe(viewLifecycleOwner) {
+            myAdapter.refreshList(it)
             myAdapter.notifyDataSetChanged()
         }
 
-        myViewModel.status.observe(viewLifecycleOwner) { item ->
-            Log.i("!@#", item.toString())
-            when (item) {
+        myViewModel.status.observe(viewLifecycleOwner) {
+            when (it) {
                 StatusLoad.LOADING -> {
                     load.isVisible = true
                     stub.isVisible = false
@@ -72,7 +70,7 @@ class MainFragment : Fragment() {
         }
 
         // TODO pagination
-        val page = 1
+        val page = 0
         myViewModel.getItems(page)
     }
 }
