@@ -11,7 +11,7 @@ data class Request(
 
 @Parcelize
 data class Item(
-    @SerializedName("data") var id: String = "",
+    @SerializedName("id") var id: String = "",
     @SerializedName("embed_url") var embed_url: String = "",
     @SerializedName("images") var images: Images = Images()
 ) : Parcelable
