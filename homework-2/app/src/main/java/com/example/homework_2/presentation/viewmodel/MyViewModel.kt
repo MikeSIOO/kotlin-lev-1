@@ -3,8 +3,6 @@ package com.example.homework_2.presentation.viewmodel
 import androidx.lifecycle.*
 import com.example.homework_2.utils.PassContextToProvider
 import com.example.homework_2.StatusLoad
-import com.example.homework_2.data.CacheImageManager
-import com.example.homework_2.domain.CacheImageRepository
 import com.example.homework_2.presentation.model.Response
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,12 +21,17 @@ class MyViewModel(private val state: SavedStateHandle) : ViewModel() {
 
     private val provider = PassContextToProvider.provider()
 
-    fun getItems(page: Int) {
+    init {
+        getItems()
+    }
+
+    private fun getItems(page: Int = 0) {
         viewModelScope.launch {
             _status.value = StatusLoad.LOADING
             try {
                 val request = withContext(Dispatchers.IO) {
                     provider.getItems(page)
+//                    cacheImageRepository.setCache(page)
                 }
                 _items.value = request.data
                 _status.value = StatusLoad.SUCCESS

@@ -12,11 +12,10 @@ class MyHolder(view: View): RecyclerView.ViewHolder(view) {
     private val context by lazy { view.context }
 
     fun bind(item: Response.Item) {
-        val url = item.images.fixed_width.url
-
         Glide
             .with(context)
-            .load(url)
+            .load(item.images.fixed_width.url)
+            .override(item.images.fixed_width.width, item.images.fixed_width.height)
             .placeholder(R.drawable.ic_launcher_foreground)
             .error(R.mipmap.ic_launcher_round)
             .fitCenter()

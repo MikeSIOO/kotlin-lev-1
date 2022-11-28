@@ -68,9 +68,5 @@ class MainFragment : Fragment() {
                 }
             }
         }
-
-        // TODO pagination
-        val page = 0
-        myViewModel.getItems(page)
     }
 }
