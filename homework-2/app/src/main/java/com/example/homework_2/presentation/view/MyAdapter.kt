@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.homework_2.R
-import com.example.homework_2.presentation.model.Item
+import com.example.homework_2.presentation.model.Response
 
-class MyAdapter: ListAdapter<Item, MyHolder>(DifferentItemCallback()) {
+class MyAdapter: ListAdapter<Response.Item, MyHolder>(DifferentItemCallback()) {
     private val items: MutableMap<String, ByteArray> = mutableMapOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {

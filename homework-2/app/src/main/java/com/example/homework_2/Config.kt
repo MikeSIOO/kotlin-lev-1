@@ -6,10 +6,10 @@ enum class StatusLoad {
     ERROR
 }
 
-enum class Response(val value: String) {
+enum class ResponseParameters(val value: String) {
     API_KEY("9FF4Dz6pMk2JDlphgZOMSOU4l4fBWNII"),
     Q("cat"),
-    LIMIT("3"),
+    LIMIT("10"),
     RATING("g"),
     LANG("en"),
 }

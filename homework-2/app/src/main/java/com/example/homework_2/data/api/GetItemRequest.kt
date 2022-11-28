@@ -1,11 +1,11 @@
 package com.example.homework_2.data.api
 
-import com.example.homework_2.presentation.model.Request
+import com.example.homework_2.presentation.model.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 // интерфейс запроса к сервису
-interface GetRequest {
+interface GetItemRequest {
     @GET("/v1/gifs/search")
     suspend fun getItems(
         @Query("api_key") api_key: String,
@@ -14,5 +14,5 @@ interface GetRequest {
         @Query("offset") offset: Int,
         @Query("rating") rating: String,
         @Query("lang") lang: String,
-    ) : Request
+    ) : Response
 }

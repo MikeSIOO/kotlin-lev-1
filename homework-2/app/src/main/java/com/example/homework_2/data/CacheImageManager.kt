@@ -1,8 +1,10 @@
 package com.example.homework_2.data
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.net.URL
 
-class CacheImgManager {
+class CacheImageManager {
     var cache: MutableMap<String, ByteArray> = mutableMapOf()
 
     suspend fun checkCache(key: String, url: String): ByteArray {
@@ -13,6 +15,8 @@ class CacheImgManager {
     }
 
     private suspend fun byteArrFromUrl(url: String) : ByteArray {
-        return URL(url).readBytes()
+        return withContext(Dispatchers.IO) {
+            URL(url).readBytes()
+        }
     }
 }
