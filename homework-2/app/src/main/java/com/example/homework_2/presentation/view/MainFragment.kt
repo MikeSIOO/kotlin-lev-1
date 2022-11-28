@@ -45,7 +45,7 @@ class MainFragment : Fragment() {
         }
 
         myViewModel.items.observe(viewLifecycleOwner) {
-            myAdapter.refreshList(it.cache)
+            myAdapter.refreshList(it)
             myAdapter.notifyDataSetChanged()
         }
 

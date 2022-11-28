@@ -7,7 +7,7 @@ import com.example.homework_2.R
 import com.example.homework_2.presentation.model.Response
 
 class MyAdapter: ListAdapter<Response.Item, MyHolder>(DifferentItemCallback()) {
-    private val items: MutableMap<String, ByteArray> = mutableMapOf()
+    private val items: ArrayList<Response.Item> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
@@ -15,7 +15,7 @@ class MyAdapter: ListAdapter<Response.Item, MyHolder>(DifferentItemCallback()) {
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        val item = items.toList()[position]
+        val item = items[position]
         holder.bind(item)
     }
 
@@ -23,8 +23,8 @@ class MyAdapter: ListAdapter<Response.Item, MyHolder>(DifferentItemCallback()) {
         return items.size
     }
 
-    fun refreshList(item: MutableMap<String, ByteArray>) {
+    fun refreshList(item: List<Response.Item>) {
         items.clear()
-        items.putAll(item)
+        items.addAll(item)
     }
 }
