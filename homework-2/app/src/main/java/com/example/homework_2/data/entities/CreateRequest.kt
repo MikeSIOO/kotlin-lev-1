@@ -1,15 +1,14 @@
 package com.example.homework_2.data.entities
 
-import com.example.homework_2.data.api.GetItemRequest
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 // описание запроса к api
-class DescriptionGetRequest {
+class CreateRequest {
     companion object {
-        fun create(baseUrl: String): GetItemRequest {
+        fun createRequest(baseUrl: String): Retrofit {
             val loggingInterceptor = HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
             }
@@ -18,13 +17,11 @@ class DescriptionGetRequest {
                 addNetworkInterceptor(loggingInterceptor)
             }.build()
 
-            val retrofit = Retrofit.Builder().apply {
+            return Retrofit.Builder().apply {
                 client(client)
                 addConverterFactory(GsonConverterFactory.create())
                 baseUrl(baseUrl)
             }.build()
-
-            return retrofit.create(GetItemRequest::class.java)
         }
     }
 }
