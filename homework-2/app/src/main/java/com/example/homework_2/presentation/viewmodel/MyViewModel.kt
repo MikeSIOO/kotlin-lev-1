@@ -22,10 +22,14 @@ class MyViewModel(private val state: SavedStateHandle) : ViewModel() {
     private val provider = PassContextToProvider.provider()
 
     init {
-        getItems()
+        getItems(0)
     }
 
-    private fun getItems(page: Int = 0) {
+    fun refreshItems(page: Int = 0) {
+        getItems(page)
+    }
+
+    private fun getItems(page: Int) {
         viewModelScope.launch {
             _status.value = StatusLoad.LOADING
             try {

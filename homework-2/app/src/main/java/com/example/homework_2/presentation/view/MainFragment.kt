@@ -64,7 +64,9 @@ class MainFragment : Fragment() {
                 StatusLoad.ERROR -> {
                     load.isVisible = false
                     stub.isVisible = true
-                    stub.setOnClickListener { onViewCreated(view, savedInstanceState) }
+                    stub.setOnClickListener {
+                        myViewModel.refreshItems()
+                    }
                 }
             }
         }
