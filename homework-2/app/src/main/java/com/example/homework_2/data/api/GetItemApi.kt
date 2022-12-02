@@ -1,8 +1,11 @@
 package com.example.homework_2.data.api
 
 import com.example.homework_2.data.entities.CreateRequest
+import com.example.homework_2.data.entities.CreateSingleRequest
 import com.example.homework_2.presentation.model.Response
+import com.example.homework_2.presentation.model.SingleResponse
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 // интерфейс запроса к сервису
@@ -22,4 +25,10 @@ interface GetItemApi {
             return CreateRequest.createRequest(baseUrl).create(GetItemApi::class.java)
         }
     }
+
+    @GET("/v1/gifs/{id}")
+    suspend fun getSingleItems(
+        @Path("id") id: String,
+        @Query("api_key") api_key: String,
+    ) : SingleResponse
 }

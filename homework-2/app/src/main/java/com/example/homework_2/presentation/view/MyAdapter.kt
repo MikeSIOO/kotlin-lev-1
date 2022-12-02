@@ -6,12 +6,12 @@ import androidx.recyclerview.widget.ListAdapter
 import com.example.homework_2.R
 import com.example.homework_2.presentation.model.Response
 
-class MyAdapter: ListAdapter<Response.Item, MyHolder>(DifferentItemCallback()) {
+class MyAdapter(private val callback: (item: Response.Item) -> Unit): ListAdapter<Response.Item, MyHolder>(DifferentItemCallback()) {
     private val items: ArrayList<Response.Item> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
-        return MyHolder(view)
+        return MyHolder(view, callback)
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {

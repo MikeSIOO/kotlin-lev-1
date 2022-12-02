@@ -12,6 +12,7 @@ import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.homework_2.presentation.viewmodel.MyViewModel
 import com.example.homework_2.R
 import com.example.homework_2.StatusLoad
@@ -19,7 +20,7 @@ import com.example.homework_2.StatusLoad
 class MainFragment : Fragment() {
     private lateinit var myViewModel: MyViewModel
 
-    private val myAdapter = MyAdapter()
+    private lateinit var myAdapter: MyAdapter
 
 
     override fun onCreateView(
@@ -37,10 +38,14 @@ class MainFragment : Fragment() {
             SavedStateViewModelFactory()
         )[MyViewModel::class.java]
 
+        myAdapter = MyAdapter() {
+            parentFragmentManager.beginTransaction().replace(R.id.container, ImageFragment.newInstance(it)).addToBackStack(null).commit()
+        }
+
         val stub = view.findViewById<TextView>(R.id.stub)
         val load = view.findViewById<ProgressBar>(R.id.load)
         view.findViewById<RecyclerView>(R.id.recycler).apply {
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
             adapter = myAdapter
         }
 
