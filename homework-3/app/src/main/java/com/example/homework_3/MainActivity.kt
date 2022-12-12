@@ -10,22 +10,26 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar!!.hide()
 
-        val button_product = findViewById<Button>(R.id.button_product)
-        val button_search = findViewById<Button>(R.id.button_search)
-        val button_profile = findViewById<Button>(R.id.button_profile)
+        val buttonProduct = findViewById<Button>(R.id.button_product)
+        val buttonSearch = findViewById<Button>(R.id.button_search)
+        val buttonProfile = findViewById<Button>(R.id.button_profile)
 
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction().add(R.id.fragment_main, ProductFragment()).commit()
+            supportFragmentManager.beginTransaction().add(R.id.fragment_main, ProductFragment())
+                .commit()
         }
 
-        button_product.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.fragment_main, ProductFragment()).commit()
+        buttonProduct.setOnClickListener {
+            supportFragmentManager.beginTransaction().replace(R.id.fragment_main, ProductFragment())
+                .commit()
         }
-        button_search.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.fragment_main, SearchFragment()).commit()
+        buttonSearch.setOnClickListener {
+            supportFragmentManager.beginTransaction().replace(R.id.fragment_main, SearchFragment())
+                .commit()
         }
-        button_profile.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.fragment_main, ProfileFragment()).commit()
+        buttonProfile.setOnClickListener {
+            supportFragmentManager.beginTransaction().replace(R.id.fragment_main, ProfileFragment())
+                .commit()
         }
     }
 }

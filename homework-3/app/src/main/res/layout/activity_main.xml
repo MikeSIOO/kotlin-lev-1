@@ -7,9 +7,9 @@
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/fragment_main"
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
@@ -24,12 +24,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/tab_product" />
+
         <Button
             android:id="@+id/button_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/tab_search" />
+
         <Button
             android:id="@+id/button_profile"
             android:layout_width="wrap_content"
