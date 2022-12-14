@@ -2,34 +2,43 @@ package com.example.homework_3
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var bottomNav: BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar!!.hide()
 
-        val buttonProduct = findViewById<Button>(R.id.button_product)
-        val buttonSearch = findViewById<Button>(R.id.button_search)
-        val buttonProfile = findViewById<Button>(R.id.button_profile)
+        loadFragment(SearchFragment())
+        bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
+        bottomNav.selectedItemId = R.id.searchFragment
+        bottomNav.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.productFragment -> {
+                    loadFragment(ProductFragment())
+                    true
+                }
+                R.id.searchFragment -> {
+                    loadFragment(SearchFragment())
+                    true
+                }
+                R.id.profileFragment -> {
+                    loadFragment(ProfileFragment())
+                    true
+                }
+                else -> {
+                    loadFragment(SearchFragment())
+                    true
+                }
+            }
+        }
+    }
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction().add(R.id.fragment_main, ProductFragment())
-                .commit()
-        }
-
-        buttonProduct.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.fragment_main, ProductFragment())
-                .commit()
-        }
-        buttonSearch.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.fragment_main, SearchFragment())
-                .commit()
-        }
-        buttonProfile.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.fragment_main, ProfileFragment())
-                .commit()
-        }
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_main, fragment).commit()
     }
 }
