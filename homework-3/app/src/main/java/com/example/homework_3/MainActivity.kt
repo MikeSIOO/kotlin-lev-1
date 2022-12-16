@@ -13,17 +13,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar!!.hide()
 
-        loadFragment(SearchFragment())
         bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
-        bottomNav.selectedItemId = R.id.searchFragment
         bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.productFragment -> {
                     loadFragment(ProductFragment())
-                    true
-                }
-                R.id.searchFragment -> {
-                    loadFragment(SearchFragment())
                     true
                 }
                 R.id.profileFragment -> {
@@ -35,6 +29,11 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
             }
+        }
+
+        if (savedInstanceState == null) {
+            loadFragment(SearchFragment())
+            bottomNav.selectedItemId = R.id.searchFragment
         }
     }
 
