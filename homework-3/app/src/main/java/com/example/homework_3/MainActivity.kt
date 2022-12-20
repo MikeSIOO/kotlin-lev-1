@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar!!.hide()
 
-        navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+        navController = Navigation.findNavController(this, R.id.navHostFragment)
         bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
 
         bottomNav.setOnItemSelectedListener {
@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             navController.navigate(R.id.productFragment)
+            // TODO не отрабатывает бэкстэк меню
             bottomNav.selectedItemId = R.id.searchFragment
         }
     }

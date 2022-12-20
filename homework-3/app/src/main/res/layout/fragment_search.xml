@@ -7,13 +7,9 @@
     tools:context=".SearchFragment">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/LabelText"
+        android:id="@+id/labelText"
         android:text="@string/label_search"
-        android:textColor="@color/brown"
-        android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

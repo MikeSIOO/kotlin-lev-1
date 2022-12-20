@@ -7,15 +7,16 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
-    private lateinit var likeButton: Button
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        likeButton = view.findViewById(R.id.likeButton)
-
-        likeButton.setOnClickListener{
+        view.findViewById<Button>(R.id.likeButton).setOnClickListener{
             findNavController().navigate(R.id.action_searchFragment_to_recipeFragment)
+        }
+
+        view.findViewById<Button>(R.id.filterButton).setOnClickListener{
+            findNavController().navigate(R.id.action_searchFragment_to_filterFragment)
         }
     }
 }

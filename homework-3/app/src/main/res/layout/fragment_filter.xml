@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecipeFragment">
+    tools:context=".FilterFragment">
 
 
     <com.google.android.material.button.MaterialButton
@@ -17,7 +17,7 @@
     <TextView
         style="@style/LabelText"
         android:id="@+id/label_text"
-        android:text="@string/label_recipe"
+        android:text="@string/label_filter"
         app:layout_constraintStart_toEndOf="@+id/backButton"
         android:paddingStart="10dp"
         app:layout_constraintTop_toTopOf="parent" />

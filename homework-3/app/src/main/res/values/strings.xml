@@ -7,4 +7,8 @@
 
 
     <string name="label_search">Что сегодня готовим?</string>
+    <string name="label_product">Измените список продуктов</string>
+    <string name="label_profile">Профиль</string>
+    <string name="label_filter">Фильтры</string>
+    <string name="label_recipe">Рецепт</string>
 </resources>

@@ -6,7 +6,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 
-class RecipeFragment : Fragment(R.layout.fragment_recipe) {
+class FilterFragment : Fragment(R.layout.fragment_filter) {
     private lateinit var backButton: Button
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
