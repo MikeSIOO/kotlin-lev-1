@@ -9,7 +9,11 @@
         android:id="@+id/searchFragment"
         android:name="com.example.homework_3.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_recipeFragment"
+            app:destination="@id/recipeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/productFragment"
         android:name="com.example.homework_3.ProductFragment"
@@ -20,4 +24,9 @@
         android:name="com.example.homework_3.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/recipeFragment"
+        android:name="com.example.homework_3.RecipeFragment"
+        android:label="fragment_recipe"
+        tools:layout="@layout/fragment_recipe" />
 </navigation>
