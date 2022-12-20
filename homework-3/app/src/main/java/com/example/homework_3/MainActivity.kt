@@ -15,20 +15,18 @@ class MainActivity : AppCompatActivity() {
 
         bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNav.setOnItemSelectedListener {
-            when (it.itemId) {
+            val fragment = when (it.itemId) {
                 R.id.productFragment -> {
-                    loadFragment(ProductFragment())
-                    true
+                    ProductFragment()
                 }
                 R.id.profileFragment -> {
-                    loadFragment(ProfileFragment())
-                    true
+                    ProfileFragment()
                 }
                 else -> {
-                    loadFragment(SearchFragment())
-                    true
+                    SearchFragment()
                 }
             }
+            loadFragment(fragment)
         }
 
         if (savedInstanceState == null) {
@@ -37,7 +35,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadFragment(fragment: Fragment) {
+    private fun loadFragment(fragment: Fragment) : Boolean {
+        // TODO бэкстэк
         supportFragmentManager.beginTransaction().replace(R.id.fragment_main, fragment).commit()
+        return true
     }
 }

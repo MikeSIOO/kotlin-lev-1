@@ -18,20 +18,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
+        style="@style/SmallCustomButton"
         android:id="@+id/filterButton"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:insetLeft="0dp"
-        android:insetTop="0dp"
-        android:insetRight="0dp"
-        android:insetBottom="0dp"
-        app:backgroundTint="@color/white"
-        app:cornerRadius="18dp"
         app:icon="@drawable/ic_baseline_filter_alt_24"
-        app:iconGravity="textStart"
-        app:iconPadding="0dp"
-        app:iconSize="20dp"
-        app:iconTint="@color/brown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,60 +44,29 @@
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.button.MaterialButton
+        style="@style/BigCustomButton"
         android:id="@+id/likeButton"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
         android:layout_marginStart="12dp"
-        android:insetLeft="0dp"
-        android:insetTop="0dp"
-        android:insetRight="0dp"
-        android:insetBottom="0dp"
         app:backgroundTint="@color/orange"
-        app:cornerRadius="36dp"
         app:icon="@drawable/ic_baseline_favorite_24"
-        app:iconGravity="textStart"
-        app:iconPadding="0dp"
-        app:iconSize="45dp"
         app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline" />
 
     <com.google.android.material.button.MaterialButton
+        style="@style/BigCustomButton"
         android:id="@+id/dislikeButton"
-        android:layout_width="68dp"
-        android:layout_height="68dp"
         android:layout_marginEnd="12dp"
-        android:insetLeft="0dp"
-        android:insetTop="0dp"
-        android:insetRight="0dp"
-        android:insetBottom="0dp"
-        app:backgroundTint="@color/white"
-        app:cornerRadius="36dp"
         app:icon="@drawable/ic_baseline_clear_24"
-        app:iconGravity="textStart"
-        app:iconPadding="0dp"
-        app:iconSize="45dp"
-        app:iconTint="@color/orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline" />
 
     <com.google.android.material.button.MaterialButton
+        style="@style/SmallCustomButton"
         android:id="@+id/returnButton"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        app:icon="@drawable/ic_baseline_navigate_before_24"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="16dp"
-        android:insetLeft="0dp"
-        android:insetTop="0dp"
-        android:insetRight="0dp"
-        android:insetBottom="0dp"
-        app:backgroundTint="@color/white"
-        app:cornerRadius="18dp"
-        app:icon="@drawable/ic_baseline_navigate_before_24"
-        app:iconGravity="textStart"
-        app:iconPadding="0dp"
-        app:iconSize="20dp"
-        app:iconTint="@color/brown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/dislikeButton" />
 
