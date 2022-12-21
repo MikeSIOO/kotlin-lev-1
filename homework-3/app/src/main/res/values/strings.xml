@@ -11,4 +11,6 @@
     <string name="label_profile">Профиль</string>
     <string name="label_filter">Фильтры</string>
     <string name="label_recipe">Рецепт</string>
+
+    <string name="stub">Ошибка запроса!</string>
 </resources>
