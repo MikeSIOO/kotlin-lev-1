@@ -13,4 +13,6 @@
     <string name="label_recipe">Рецепт</string>
 
     <string name="stub">Ошибка запроса!</string>
+
+    <string name="search_placeholder">Поиск по продуктам</string>
 </resources>

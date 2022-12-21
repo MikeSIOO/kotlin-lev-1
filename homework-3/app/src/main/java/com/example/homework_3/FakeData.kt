@@ -33,7 +33,7 @@ class SearchResult(val searchElements: ArrayList<SearchElement> = arrayListOf())
         )
 
         suspend fun getSearchById(id: Int): SearchElement {
-            delay(2000L)
+            delay(500L)
             return searchResult[id % 3]
         }
     }
@@ -112,7 +112,7 @@ class FullRecipe(val recipeElements: ArrayList<RecipeElement>) {
         )
 
         suspend fun getRecipe(id: Int): RecipeElement {
-            delay(2000L)
+            delay(500L)
             return recipes[id]
         }
     }
@@ -149,7 +149,7 @@ class ProductCategories(val categories: ArrayList<Category>) {
         )
 
         suspend fun getProducts(): ArrayList<Category> {
-            delay(2000L)
+            delay(500L)
             return products
         }
     }

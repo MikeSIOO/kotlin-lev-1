@@ -60,7 +60,6 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     }
 
     private fun loadData(id: Int) {
-        println(id)
         lifecycleScope.launch {
             load.isVisible = true
             stub.isVisible = false
@@ -69,10 +68,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 val data = withContext(Dispatchers.IO) {
                     SearchResult.getSearchById(id)
                 }
-
                 load.isVisible = false
                 stub.isVisible = false
                 card.isVisible = true
+
                 Glide.with(requireContext()).load(data.image).into(image)
                 tags.text = data.tags.joinToString("\n")
                 name.text = "${data.name}, ${data.time}"
