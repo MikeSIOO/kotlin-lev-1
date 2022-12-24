@@ -16,4 +16,6 @@
 
     <string name="search_placeholder">Поиск по продуктам</string>
     <string name="search_button">Подобрать блюдо!</string>
+
+    <string name="description_profile">Последние рецепты</string>
 </resources>

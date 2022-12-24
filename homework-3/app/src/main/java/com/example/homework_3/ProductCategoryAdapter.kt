@@ -4,13 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class MyAdapter(private val items: ArrayList<ProductCategories.Category>) : RecyclerView.Adapter<MyHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
+class ProductCategoryAdapter(private val items: ArrayList<ProductCategories.Category>) : RecyclerView.Adapter<ProductCategoryHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductCategoryHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_product_category, parent, false)
-        return MyHolder(view)
+        return ProductCategoryHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MyHolder, position: Int) {
+    override fun onBindViewHolder(holder: ProductCategoryHolder, position: Int) {
         holder.bind(items[position])
     }
 

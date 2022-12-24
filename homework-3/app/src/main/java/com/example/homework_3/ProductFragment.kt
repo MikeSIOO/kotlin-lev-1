@@ -41,7 +41,7 @@ class ProductFragment : Fragment(R.layout.fragment_product) {
                 stub.isVisible = false
                 recycler.isVisible = true
 
-                val myAdapter = MyAdapter(data)
+                val myAdapter = ProductCategoryAdapter(data)
                 recycler.apply {
                     layoutManager = LinearLayoutManager(context)
                     adapter = myAdapter

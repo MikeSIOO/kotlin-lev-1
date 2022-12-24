@@ -214,3 +214,59 @@ class ProductCategories(val categories: ArrayList<Category>) {
         }
     }
 }
+
+
+class ProfileData (val profileElements: ArrayList<ProfileElement> = arrayListOf()) {
+    class ProfileElement(
+        val name: String,
+        val time: String,
+        val image: Int,
+        val tags: ArrayList<String>
+    )
+
+    companion object {
+        private val profileResult: ArrayList<ProfileElement> = arrayListOf(
+            ProfileElement(
+                "Омлет",
+                "30 минут",
+                R.drawable.first,
+                arrayListOf("Завтрак", "Легко приготовить")
+            ),
+            ProfileElement(
+                "Омлет получше",
+                "20 минут",
+                R.drawable.second,
+                arrayListOf("Обед", "Веганский")
+            ),
+            ProfileElement(
+                "Омлет мечты",
+                "10 минут",
+                R.drawable.third,
+                arrayListOf("Перекус", "Легко приготовить")
+            ),
+            ProfileElement(
+                "Омлет",
+                "30 минут",
+                R.drawable.first,
+                arrayListOf("Завтрак", "Легко приготовить")
+            ),
+            ProfileElement(
+                "Омлет получше",
+                "20 минут",
+                R.drawable.second,
+                arrayListOf("Обед", "Веганский")
+            ),
+            ProfileElement(
+                "Омлет мечты",
+                "10 минут",
+                R.drawable.third,
+                arrayListOf("Перекус", "Легко приготовить")
+            ),
+        )
+
+        suspend fun getData(): ArrayList<ProfileElement> {
+            delay(500L)
+            return profileResult
+        }
+    }
+}
