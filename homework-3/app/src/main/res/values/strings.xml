@@ -18,4 +18,6 @@
     <string name="search_button">Подобрать блюдо!</string>
 
     <string name="description_profile">Последние рецепты</string>
+
+    <string name="products">Ингредиенты:</string>
 </resources>

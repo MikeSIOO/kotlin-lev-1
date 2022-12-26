@@ -53,7 +53,7 @@ class FullRecipe(val recipeElements: ArrayList<RecipeElement>) {
         )
 
         class Step(
-            val id: Int,
+            val id: String,
             val image: Int,
             val description: String
         )
@@ -71,10 +71,10 @@ class FullRecipe(val recipeElements: ArrayList<RecipeElement>) {
                     RecipeElement.Ingredients("Молоко", "100 мл"),
                 ),
                 arrayListOf(
-                    RecipeElement.Step(1, R.drawable.first, "Нужно сделать то-то и то-то, а потом еще вот это"),
-                    RecipeElement.Step(2, R.drawable.second, "Нужно сделать то-то и то-то, а потом еще вот это"),
-                    RecipeElement.Step(3, R.drawable.third, "Нужно сделать то-то и то-то, а потом еще вот это"),
-                    RecipeElement.Step(4, R.drawable.first, "Нужно сделать то-то и то-то, а потом еще вот это")
+                    RecipeElement.Step("1", R.drawable.first, "Нужно сделать то-то и то-то, а потом еще вот это"),
+                    RecipeElement.Step("2", R.drawable.second, "Нужно сделать то-то и то-то, а потом еще вот это"),
+                    RecipeElement.Step("3", R.drawable.third, "Нужно сделать то-то и то-то, а потом еще вот это"),
+                    RecipeElement.Step("4", R.drawable.first, "Нужно сделать то-то и то-то, а потом еще вот это")
                 )
             ),
             RecipeElement(
@@ -87,10 +87,10 @@ class FullRecipe(val recipeElements: ArrayList<RecipeElement>) {
                     RecipeElement.Ingredients("Молоко", "100 мл"),
                 ),
                 arrayListOf(
-                    RecipeElement.Step(1, R.drawable.first, "Нужно сделать то-то и то-то, а потом еще вот это"),
-                    RecipeElement.Step(2, R.drawable.second, "Нужно сделать то-то и то-то, а потом еще вот это"),
-                    RecipeElement.Step(3, R.drawable.third, "Нужно сделать то-то и то-то, а потом еще вот это"),
-                    RecipeElement.Step(4, R.drawable.first, "Нужно сделать то-то и то-то, а потом еще вот это")
+                    RecipeElement.Step("1", R.drawable.first, "Нужно сделать то-то и то-то, а потом еще вот это"),
+                    RecipeElement.Step("2", R.drawable.second, "Нужно сделать то-то и то-то, а потом еще вот это"),
+                    RecipeElement.Step("3", R.drawable.third, "Нужно сделать то-то и то-то, а потом еще вот это"),
+                    RecipeElement.Step("4", R.drawable.first, "Нужно сделать то-то и то-то, а потом еще вот это")
                 )
             ),
             RecipeElement(
@@ -103,10 +103,10 @@ class FullRecipe(val recipeElements: ArrayList<RecipeElement>) {
                     RecipeElement.Ingredients("Молоко", "100 мл"),
                 ),
                 arrayListOf(
-                    RecipeElement.Step(1, R.drawable.first, "Нужно сделать то-то и то-то, а потом еще вот это"),
-                    RecipeElement.Step(2, R.drawable.second, "Нужно сделать то-то и то-то, а потом еще вот это"),
-                    RecipeElement.Step(3, R.drawable.third, "Нужно сделать то-то и то-то, а потом еще вот это"),
-                    RecipeElement.Step(4, R.drawable.first, "Нужно сделать то-то и то-то, а потом еще вот это")
+                    RecipeElement.Step("1", R.drawable.first, "Нужно сделать то-то и то-то, а потом еще вот это"),
+                    RecipeElement.Step("2", R.drawable.second, "Нужно сделать то-то и то-то, а потом еще вот это"),
+                    RecipeElement.Step("3", R.drawable.third, "Нужно сделать то-то и то-то, а потом еще вот это"),
+                    RecipeElement.Step("4", R.drawable.first, "Нужно сделать то-то и то-то, а потом еще вот это")
                 )
             ),
         )

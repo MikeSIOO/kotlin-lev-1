@@ -7,15 +7,15 @@
     tools:context=".Search.SearchFragment">
 
     <TextView
-        style="@style/LabelText"
         android:id="@+id/labelText"
+        style="@style/LabelText"
         android:text="@string/label_search"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        style="@style/SmallCustomButton"
         android:id="@+id/filterButton"
+        style="@style/SmallCustomButton"
         app:icon="@drawable/ic_baseline_filter_alt_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,13 +37,14 @@
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:background="#eeeeee" />
+            android:background="#eeeeee"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingVertical="5sp"
             android:paddingStart="10dp"
             android:shadowColor="@color/white"
             android:shadowDx="0"
@@ -51,23 +52,22 @@
             android:shadowRadius="5"
             android:textColor="@color/brown"
             android:textSize="20dp"
-            android:textStyle="bold"
-            android:paddingVertical="5sp"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tags"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:background="#CCFFFFFF"
-            android:paddingStart="10dp"
             android:paddingVertical="5sp"
-            android:textColor="@color/brown"
-            android:layout_gravity="bottom" />
+            android:paddingStart="10dp"
+            android:textColor="@color/brown" />
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.button.MaterialButton
-        style="@style/BigCustomButton"
         android:id="@+id/likeButton"
+        style="@style/BigCustomButton"
         android:layout_marginStart="12dp"
         app:backgroundTint="@color/orange"
         app:icon="@drawable/ic_baseline_favorite_24"
@@ -76,19 +76,19 @@
         app:layout_constraintStart_toStartOf="@+id/guideline" />
 
     <com.google.android.material.button.MaterialButton
-        style="@style/BigCustomButton"
         android:id="@+id/dislikeButton"
+        style="@style/BigCustomButton"
         android:layout_marginEnd="12dp"
         app:icon="@drawable/ic_baseline_clear_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline" />
 
     <com.google.android.material.button.MaterialButton
-        style="@style/SmallCustomButton"
         android:id="@+id/returnButton"
-        app:icon="@drawable/ic_baseline_navigate_before_24"
+        style="@style/SmallCustomButton"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="16dp"
+        app:icon="@drawable/ic_baseline_navigate_before_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/dislikeButton" />
 
@@ -104,26 +104,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
         android:visibility="gone"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/stub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/stub"
         android:layout_gravity="center"
+        android:focusable="true"
+        android:text="@string/stub"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        android:visibility="gone"
-        android:focusable="true" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
