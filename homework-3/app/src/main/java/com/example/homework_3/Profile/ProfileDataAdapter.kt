@@ -8,11 +8,11 @@ import com.example.homework_3.R
 
 class ProfileDataAdapter(
     private val items: ArrayList<ProfileData.ProfileElement>,
-    private val callback: (item: ProfileData.ProfileElement) -> Unit
+    private val chooseItem: (item: ProfileData.ProfileElement) -> Unit
 ) : RecyclerView.Adapter<ProfileDataHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileDataHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_profile, parent, false)
-        return ProfileDataHolder(view, callback)
+        return ProfileDataHolder(view, chooseItem)
     }
 
     override fun onBindViewHolder(holder: ProfileDataHolder, position: Int) {

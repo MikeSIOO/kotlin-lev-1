@@ -11,7 +11,7 @@ import com.example.homework_3.R
 
 class ProfileDataHolder(
     itemView: View,
-    private val callback: (item: ProfileData.ProfileElement) -> Unit
+    private val chooseItem: (item: ProfileData.ProfileElement) -> Unit
 ) : RecyclerView.ViewHolder(itemView) {
     fun bind(item: ProfileData.ProfileElement) {
         itemView.findViewById<TextView?>(R.id.name).text = "${item.name}, ${item.time}"
@@ -21,7 +21,7 @@ class ProfileDataHolder(
         Glide.with(itemView.context).load(item.image).into(image)
 
         itemView.findViewById<FrameLayout?>(R.id.card).setOnClickListener {
-            callback(item)
+            chooseItem(item)
         }
     }
 }

@@ -9,8 +9,10 @@ import com.example.homework_3.FullRecipe
 import com.example.homework_3.R
 
 class RecipeHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private val stepText = "Шаг #"
+
     fun bind(item: FullRecipe.RecipeElement.Step) {
-        itemView.findViewById<TextView?>(R.id.name).text = "Шаг #${item.id}"
+        itemView.findViewById<TextView?>(R.id.name).text = stepText + item.id
         itemView.findViewById<TextView?>(R.id.instruction).text = item.description
 
         val image: ImageView = itemView.findViewById(R.id.image)
