@@ -11,7 +11,7 @@
         android:layout_height="50sp"
         android:background="@drawable/corner10"
         android:backgroundTint="@color/white"
-        android:padding="12sp"
+        android:layout_margin="12dp"
         android:textColor="@color/brown"
         android:textSize="17sp"
         android:textStyle="bold"
