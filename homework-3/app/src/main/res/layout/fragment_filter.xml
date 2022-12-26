@@ -16,7 +16,7 @@
     <TextView
         android:id="@+id/label_text"
         style="@style/LabelText"
-        android:paddingStart="10dp"
+        android:layout_marginStart="10dp"
         android:text="@string/label_filter"
         app:layout_constraintStart_toEndOf="@+id/backButton"
         app:layout_constraintTop_toTopOf="parent" />

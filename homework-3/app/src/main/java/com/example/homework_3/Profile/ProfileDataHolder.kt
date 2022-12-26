@@ -1,9 +1,9 @@
 package com.example.homework_3.Profile
 
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.homework_3.ProfileData
@@ -20,7 +20,7 @@ class ProfileDataHolder(
         val image: ImageView = itemView.findViewById(R.id.image)
         Glide.with(itemView.context).load(item.image).into(image)
 
-        itemView.findViewById<CardView?>(R.id.card).setOnClickListener {
+        itemView.findViewById<FrameLayout?>(R.id.card).setOnClickListener {
             callback(item)
         }
     }

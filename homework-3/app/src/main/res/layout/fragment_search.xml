@@ -44,13 +44,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingVertical="5sp"
-            android:paddingStart="10dp"
+            android:layout_marginStart="10dp"
             android:shadowColor="@color/white"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5"
             android:textColor="@color/brown"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -60,7 +60,7 @@
             android:layout_gravity="bottom"
             android:background="#CCFFFFFF"
             android:paddingVertical="5sp"
-            android:paddingStart="10dp"
+            android:layout_marginStart="10dp"
             android:textColor="@color/brown" />
     </androidx.cardview.widget.CardView>
 

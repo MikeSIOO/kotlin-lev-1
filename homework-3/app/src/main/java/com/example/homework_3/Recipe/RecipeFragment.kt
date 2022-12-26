@@ -1,7 +1,6 @@
 package com.example.homework_3.Recipe
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
