@@ -4,6 +4,7 @@ import kotlinx.coroutines.delay
 
 class SearchResult(val searchElements: ArrayList<SearchElement> = arrayListOf()) {
     class SearchElement(
+        val id: Int,
         val name: String,
         val time: String,
         val image: Int,
@@ -13,18 +14,21 @@ class SearchResult(val searchElements: ArrayList<SearchElement> = arrayListOf())
     companion object {
         private val searchResult: ArrayList<SearchElement> = arrayListOf(
             SearchElement(
+                0,
                 "Омлет",
                 "30 минут",
                 R.drawable.first,
                 arrayListOf("Завтрак", "Легко приготовить")
             ),
             SearchElement(
+                1,
                 "Омлет получше",
                 "20 минут",
                 R.drawable.second,
                 arrayListOf("Обед", "Легко приготовить", "Веганский")
             ),
             SearchElement(
+                2,
                 "Омлет мечты",
                 "10 минут",
                 R.drawable.third,
@@ -78,12 +82,12 @@ class FullRecipe(val recipeElements: ArrayList<RecipeElement>) {
                     ),
                     RecipeElement.Step(
                         "2",
-                        R.drawable.second,
+                        R.drawable.first,
                         "Нужно сделать то-то и то-то, а потом еще вот это"
                     ),
                     RecipeElement.Step(
                         "3",
-                        R.drawable.third,
+                        R.drawable.first,
                         "Нужно сделать то-то и то-то, а потом еще вот это"
                     ),
                     RecipeElement.Step(
@@ -96,7 +100,7 @@ class FullRecipe(val recipeElements: ArrayList<RecipeElement>) {
             RecipeElement(
                 "Омлет получше",
                 "20 минут",
-                R.drawable.first,
+                R.drawable.second,
                 arrayListOf(
                     RecipeElement.Ingredients("Яйца", "2 шт"),
                     RecipeElement.Ingredients("Помидор", "1 шт"),
@@ -105,7 +109,7 @@ class FullRecipe(val recipeElements: ArrayList<RecipeElement>) {
                 arrayListOf(
                     RecipeElement.Step(
                         "1",
-                        R.drawable.first,
+                        R.drawable.second,
                         "Нужно сделать то-то и то-то, а потом еще вот это"
                     ),
                     RecipeElement.Step(
@@ -115,12 +119,12 @@ class FullRecipe(val recipeElements: ArrayList<RecipeElement>) {
                     ),
                     RecipeElement.Step(
                         "3",
-                        R.drawable.third,
+                        R.drawable.second,
                         "Нужно сделать то-то и то-то, а потом еще вот это"
                     ),
                     RecipeElement.Step(
                         "4",
-                        R.drawable.first,
+                        R.drawable.second,
                         "Нужно сделать то-то и то-то, а потом еще вот это"
                     )
                 )
@@ -128,7 +132,7 @@ class FullRecipe(val recipeElements: ArrayList<RecipeElement>) {
             RecipeElement(
                 "Омлет мечты",
                 "10 минут",
-                R.drawable.first,
+                R.drawable.third,
                 arrayListOf(
                     RecipeElement.Ingredients("Яйца", "2 шт"),
                     RecipeElement.Ingredients("Помидор", "1 шт"),
@@ -137,12 +141,12 @@ class FullRecipe(val recipeElements: ArrayList<RecipeElement>) {
                 arrayListOf(
                     RecipeElement.Step(
                         "1",
-                        R.drawable.first,
+                        R.drawable.third,
                         "Нужно сделать то-то и то-то, а потом еще вот это"
                     ),
                     RecipeElement.Step(
                         "2",
-                        R.drawable.second,
+                        R.drawable.third,
                         "Нужно сделать то-то и то-то, а потом еще вот это"
                     ),
                     RecipeElement.Step(
@@ -152,7 +156,7 @@ class FullRecipe(val recipeElements: ArrayList<RecipeElement>) {
                     ),
                     RecipeElement.Step(
                         "4",
-                        R.drawable.first,
+                        R.drawable.third,
                         "Нужно сделать то-то и то-то, а потом еще вот это"
                     )
                 )
@@ -430,6 +434,7 @@ class ProductCategories(val categories: ArrayList<Category>) {
 
 class ProfileData(val profileElements: ArrayList<ProfileElement> = arrayListOf()) {
     class ProfileElement(
+        val id: Int,
         val name: String,
         val time: String,
         val image: Int,
@@ -439,36 +444,42 @@ class ProfileData(val profileElements: ArrayList<ProfileElement> = arrayListOf()
     companion object {
         private val profileResult: ArrayList<ProfileElement> = arrayListOf(
             ProfileElement(
+                0,
                 "Омлет",
                 "30 минут",
                 R.drawable.first,
                 arrayListOf("Завтрак", "Легко приготовить")
             ),
             ProfileElement(
+                1,
                 "Омлет получше",
                 "20 минут",
                 R.drawable.second,
                 arrayListOf("Обед", "Веганский")
             ),
             ProfileElement(
+                2,
                 "Омлет мечты",
                 "10 минут",
                 R.drawable.third,
                 arrayListOf("Перекус", "Легко приготовить")
             ),
             ProfileElement(
+                0,
                 "Омлет",
                 "30 минут",
                 R.drawable.first,
                 arrayListOf("Завтрак", "Легко приготовить")
             ),
             ProfileElement(
+                1,
                 "Омлет получше",
                 "20 минут",
                 R.drawable.second,
                 arrayListOf("Обед", "Веганский")
             ),
             ProfileElement(
+                2,
                 "Омлет мечты",
                 "10 минут",
                 R.drawable.third,

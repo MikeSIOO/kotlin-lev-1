@@ -25,6 +25,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     private lateinit var image: ImageView
     private lateinit var tags: TextView
     private lateinit var name: TextView
+    private lateinit var likeButton: Button
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,13 +36,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         image = view.findViewById(R.id.image)
         tags = view.findViewById(R.id.tags)
         name = view.findViewById(R.id.name)
+        likeButton = view.findViewById(R.id.likeButton)
 
         var id: Int = 0
         loadData(id)
-
-        view.findViewById<Button>(R.id.likeButton).setOnClickListener {
-            findNavController().navigate(R.id.action_searchFragment_to_recipeFragment)
-        }
 
         view.findViewById<Button>(R.id.filterButton).setOnClickListener {
             findNavController().navigate(R.id.action_searchFragment_to_filterFragment)
@@ -76,6 +74,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 Glide.with(requireContext()).load(data.image).into(image)
                 tags.text = data.tags.joinToString("\n")
                 name.text = "${data.name}, ${data.time}"
+
+                likeButton.setOnClickListener {
+                    findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToRecipeFragment(data.id))
+                }
             } catch (error: Throwable) {
                 load.isVisible = false
                 stub.isVisible = true

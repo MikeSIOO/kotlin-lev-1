@@ -39,7 +39,11 @@
         android:id="@+id/recipeFragment"
         android:name="com.example.homework_3.Recipe.RecipeFragment"
         android:label="fragment_recipe"
-        tools:layout="@layout/fragment_recipe" />
+        tools:layout="@layout/fragment_recipe" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/filterFragment"
         android:name="com.example.homework_3.Filter.FilterFragment"
