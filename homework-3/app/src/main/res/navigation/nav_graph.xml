@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.homework_3.SearchFragment"
+        android:name="com.example.homework_3.Search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
@@ -19,22 +19,30 @@
     </fragment>
     <fragment
         android:id="@+id/productFragment"
-        android:name="com.example.homework_3.ProductFragment"
+        android:name="com.example.homework_3.Product.ProductFragment"
         android:label="fragment_product"
-        tools:layout="@layout/fragment_product" />
+        tools:layout="@layout/fragment_product" >
+        <action
+            android:id="@+id/action_productFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.homework_3.ProfileFragment"
+        android:name="com.example.homework_3.Profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_recipeFragment"
+            app:destination="@id/recipeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/recipeFragment"
-        android:name="com.example.homework_3.RecipeFragment"
+        android:name="com.example.homework_3.Recipe.RecipeFragment"
         android:label="fragment_recipe"
         tools:layout="@layout/fragment_recipe" />
     <fragment
         android:id="@+id/filterFragment"
-        android:name="com.example.homework_3.FilterFragment"
+        android:name="com.example.homework_3.Filter.FilterFragment"
         android:label="fragment_filter"
         tools:layout="@layout/fragment_filter" />
 </navigation>

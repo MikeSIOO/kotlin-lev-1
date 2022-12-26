@@ -1,8 +1,10 @@
-package com.example.homework_3
+package com.example.homework_3.Product
 
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.homework_3.ProductCategories
+import com.example.homework_3.R
 
 class ProductCategoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(item: ProductCategories.Category) {

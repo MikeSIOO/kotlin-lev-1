@@ -1,8 +1,10 @@
-package com.example.homework_3
+package com.example.homework_3.Product
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.homework_3.ProductCategories
+import com.example.homework_3.R
 
 class ProductCategoryAdapter(private val items: ArrayList<ProductCategories.Category>) : RecyclerView.Adapter<ProductCategoryHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductCategoryHolder {

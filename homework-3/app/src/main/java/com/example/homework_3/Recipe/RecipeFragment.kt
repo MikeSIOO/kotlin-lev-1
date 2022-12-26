@@ -1,12 +1,13 @@
-package com.example.homework_3
+package com.example.homework_3.Recipe
 
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.homework_3.R
 
-class FilterFragment : Fragment(R.layout.fragment_filter) {
+class RecipeFragment : Fragment(R.layout.fragment_recipe) {
     private lateinit var backButton: Button
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
