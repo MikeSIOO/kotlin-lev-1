@@ -33,7 +33,7 @@ class RecipeFragment : Fragment(R.layout.fragment_recipe) {
 
         loadData()
 
-        view.findViewById<Button>(R.id.backButton).setOnClickListener{
+        view.findViewById<Button>(R.id.backButton).setOnClickListener {
             findNavController().popBackStack()
         }
     }
@@ -52,7 +52,7 @@ class RecipeFragment : Fragment(R.layout.fragment_recipe) {
                 recycler.isVisible = true
 
                 var ingredients = "Ингредиенты:"
-                data.ingredients.forEach{ ingredients += "\n${it.name} - ${it.quantity}" }
+                data.ingredients.forEach { ingredients += "\n${it.name} - ${it.quantity}" }
                 val newSteps = arrayListOf<FullRecipe.RecipeElement.Step>(
                     FullRecipe.RecipeElement.Step("0", data.image, ingredients)
                 )

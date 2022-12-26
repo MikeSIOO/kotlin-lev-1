@@ -15,7 +15,7 @@ class FilterFragment : Fragment(R.layout.fragment_filter) {
 
         backButton = view.findViewById(R.id.backButton)
 
-        backButton.setOnClickListener{
+        backButton.setOnClickListener {
             findNavController().popBackStack()
         }
     }

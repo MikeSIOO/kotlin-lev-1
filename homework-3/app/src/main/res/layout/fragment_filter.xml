@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Filter.FilterFragment">
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/backButton"
         style="@style/SmallCustomButton"
