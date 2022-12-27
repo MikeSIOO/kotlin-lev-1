@@ -25,6 +25,9 @@ class RecipeFragment : Fragment(R.layout.fragment_recipe) {
     private lateinit var load: ProgressBar
     private lateinit var recycler: RecyclerView
     private lateinit var labelText: TextView
+    private lateinit var time: TextView
+    private var ingredients = "Ингредиенты:"
+    private var timeText = "Время: "
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,6 +36,7 @@ class RecipeFragment : Fragment(R.layout.fragment_recipe) {
         load = view.findViewById(R.id.load)
         recycler = view.findViewById(R.id.recycler)
         labelText = view.findViewById(R.id.labelText)
+        time = view.findViewById(R.id.time)
 
         loadData(args.id)
 
@@ -54,7 +58,6 @@ class RecipeFragment : Fragment(R.layout.fragment_recipe) {
                 stub.isVisible = false
                 recycler.isVisible = true
 
-                var ingredients = "Ингредиенты:"
                 data.ingredients.forEach { ingredients += "\n${it.name} - ${it.quantity}" }
                 val newSteps = arrayListOf<FullRecipe.RecipeElement.Step>(
                     FullRecipe.RecipeElement.Step("0", data.image, ingredients)
@@ -66,7 +69,8 @@ class RecipeFragment : Fragment(R.layout.fragment_recipe) {
                     layoutManager = LinearLayoutManager(context)
                     adapter = myAdapter
                 }
-                labelText.text = "${data.name}, ${data.time}"
+                labelText.text = data.name
+                time.text = timeText + data.time
             } catch (error: Throwable) {
                 load.isVisible = false
                 stub.isVisible = true

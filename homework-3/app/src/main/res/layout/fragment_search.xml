@@ -43,7 +43,7 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
             android:shadowColor="@color/white"
             android:shadowDx="0"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:background="#CCFFFFFF"
-            android:paddingVertical="5sp"
+            android:paddingVertical="10sp"
             android:paddingHorizontal="10dp"
             android:textColor="@color/brown" />
     </androidx.cardview.widget.CardView>
